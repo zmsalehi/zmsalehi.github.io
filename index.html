@@ -10,11 +10,10 @@
     <meta name="description"
           content="آبان؛ پلتفرم میانی نوآوری برای اتصال مسائل سازمان‌ها به توانمندی تیم‌ها، شرکت‌های فناور و راهکارهای نوآورانه.">
 
-    <meta name="theme-color" content="#183d32">
+    <meta name="theme-color" content="#022046">
 
-        <link rel="stylesheet" href="aban-theme.css">
-    <link rel="stylesheet" href="aban-header.css">
-    <link rel="stylesheet" href="aban-page.css">
+        <link rel="stylesheet" href="aban-page.css">
+
 </head>
 
 
@@ -22,37 +21,38 @@
 
     <!-- سربرگ -->
 
-    <header class="aban-header">
-        <div class="aban-header__shell">
-            <a class="aban-brand" href="#home" aria-label="صفحه اصلی آبان">
-                <span class="brand-symbol" aria-hidden="true">آ</span>
+    <header class="header">
+        <div class="container header-inner">
+
+            <a class="brand" href="#home" aria-label="صفحه اصلی آبان">
+
+                <span class="brand-symbol">آ</span>
+
                 <span>
                     <span class="brand-name">آبان</span>
-                    <span class="brand-caption">پلتفرم میانی نوآوری</span>
+                    <span class="brand-caption">
+                        پلتفرم میانی نوآوری
+                    </span>
                 </span>
+
             </a>
 
-            <nav class="aban-nav" id="abanNav" aria-label="منوی اصلی">
-                <a class="aban-nav__link is-active" href="#home">خانه</a>
-                <a class="aban-nav__link" href="#organizations">برای سازمان‌ها</a>
-                <a class="aban-nav__link" href="#teams">برای تیم‌ها</a>
-                <a class="aban-nav__link" href="#services">خدمات</a>
-                <a class="aban-nav__link" href="#mag">MAG</a>
-                <a class="aban-nav__link" href="#opportunities">فرصت‌ها</a>
-                <a class="aban-nav__link" href="#about">درباره آبان</a>
+
+            <nav class="nav" aria-label="منوی اصلی">
+                <a href="#home">خانه</a>
+                <a href="#organizations">برای سازمان‌ها</a>
+                <a href="#teams">برای تیم‌ها</a>
+                <a href="#services">خدمات</a>
+                <a href="#mag">MAG</a>
+                <a href="#opportunities">فرصت‌ها</a>
+                <a href="#about">درباره آبان</a>
             </nav>
 
-            <div class="aban-header__actions">
-                <a href="#contact" class="aban-cta">
-                    <span>شروع همکاری</span>
-                    <span class="aban-cta__icon" aria-hidden="true">←</span>
-                </a>
-                <button class="aban-menu-toggle" id="abanMenuToggle"
-                        type="button" aria-label="باز کردن منو"
-                        aria-expanded="false" aria-controls="abanNav">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
+
+            <a href="#contact" class="btn btn-green header-action">
+                شروع همکاری
+            </a>
+
         </div>
     </header>
 
@@ -830,29 +830,6 @@
         </div>
 
     </footer>
-
-
-<script>
-  (function () {
-    const toggle = document.getElementById('abanMenuToggle');
-    const nav = document.getElementById('abanNav');
-    if (!toggle || !nav) return;
-
-    toggle.addEventListener('click', function () {
-      const isOpen = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.setAttribute('aria-label', isOpen ? 'بستن منو' : 'باز کردن منو');
-    });
-
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'باز کردن منو');
-      });
-    });
-  })();
-</script>
 
 </body>
 
