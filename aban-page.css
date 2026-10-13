@@ -1,0 +1,1029 @@
+/* =========================
+           1. تنظیمات پایه
+        ========================= */
+
+        :root {
+            --green: #022046;
+            --green-light: #07507a;
+            --green-soft: #edf7fb;
+            --gold: #d1aa68;
+            --gold-light: #dcc08c;
+            --cream: #f6fafc;
+            --white: #ffffff;
+            --text: #09233f;
+            --muted: #647487;
+            --border: rgba(2, 32, 70, 0.10);
+            --radius: 18px;
+            --shadow: 0 12px 35px rgba(2, 32, 70, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 2;
+            font-size: 15px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: min(1160px, 90%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            max-width: 730px;
+            margin-bottom: 38px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--green-light);
+            background: var(--green-soft);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: clamp(25px, 3vw, 35px);
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+            padding: 10px 23px;
+            border-radius: 9px;
+            border: 1px solid transparent;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #183328;
+        }
+
+        .btn-gold:hover {
+            background: #d7bb83;
+        }
+
+        .btn-outline {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--green);
+            border-color: var(--border);
+        }
+
+
+        /* =========================
+           2. سربرگ و منو
+        ========================= */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248, 247, 242, 0.97);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .brand-symbol {
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--green);
+            color: var(--gold);
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .brand-name {
+            color: var(--green);
+            font-size: 25px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .brand-caption {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: normal;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav a {
+            color: #46554d;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--green);
+        }
+
+        .header-action {
+            flex-shrink: 0;
+        }
+
+
+        /* =========================
+           3. بخش اصلی صفحه
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 12% 15%,
+                    rgba(200, 169, 107, 0.16),
+                    transparent 27%
+                ),
+                linear-gradient(
+                    125deg,
+                    #15362d 0%,
+                    #1b483a 58%,
+                    #285849 100%
+                );
+            color: var(--white);
+            padding: 100px 0 90px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(200, 169, 107, 0.17);
+            border-radius: 50%;
+            left: -180px;
+            top: -170px;
+            box-shadow:
+                0 0 0 45px rgba(200, 169, 107, 0.025),
+                0 0 0 90px rgba(200, 169, 107, 0.025);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero .eyebrow {
+            color: #f1dfb9;
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 4.5vw, 56px);
+            line-height: 1.65;
+            max-width: 760px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #e0c38b;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #d8e3dc;
+            font-size: 16px;
+            line-height: 2.3;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .hero-note {
+            font-size: 12px;
+            color: #c3d1c8;
+        }
+
+        .hero-panel {
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.055);
+            border-radius: 22px;
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-panel-title {
+            color: #e7cf9c;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .connection {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 17px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .connection:last-child {
+            border-bottom: none;
+        }
+
+        .connection-icon {
+            width: 47px;
+            height: 47px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            background: rgba(200, 169, 107, 0.16);
+            color: #e7cf9c;
+            font-size: 23px;
+        }
+
+        .connection h3 {
+            font-size: 15px;
+            color: white;
+        }
+
+        .connection p {
+            font-size: 12px;
+            color: #c8d6cd;
+            line-height: 1.9;
+        }
+
+        .connection-arrow {
+            color: var(--gold);
+            font-size: 23px;
+            margin-right: auto;
+        }
+
+
+        /* =========================
+           4. مسیرهای ورود مخاطبان
+        ========================= */
+
+        .audience {
+            position: relative;
+            margin-top: -1px;
+            padding: 0 0 35px;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .audience-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-top: 28px;
+        }
+
+        .audience-card .icon {
+            display: grid;
+            place-items: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 15px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-size: 26px;
+            margin-bottom: 18px;
+        }
+
+        .audience-card h2 {
+            font-size: 22px;
+        }
+
+        .audience-card p {
+            color: var(--muted);
+            margin-bottom: 22px;
+            font-size: 14px;
+        }
+
+        .audience-card .btn {
+            margin-top: auto;
+        }
+
+
+        /* =========================
+           5. خدمات آبان
+        ========================= */
+
+        .services {
+            background: var(--white);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: 0.25s ease;
+            background: white;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: #bdcdbf;
+        }
+
+        .service-number {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 14px;
+            direction: ltr;
+        }
+
+        .service-card h3 {
+            font-size: 17px;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2.2;
+        }
+
+
+        /* =========================
+           6. روش کار آبان
+        ========================= */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            padding: 25px 20px;
+            border-radius: var(--radius);
+            background: #eeeee5;
+            position: relative;
+        }
+
+        .process-card .step {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--green);
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .process-card h3 {
+            color: var(--green);
+            font-size: 16px;
+            margin-bottom: 9px;
+        }
+
+        .process-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           7. بخش MAG
+        ========================= */
+
+        .mag {
+            background: #eae9df;
+        }
+
+        .mag-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 25px;
+            margin-bottom: 32px;
+        }
+
+        .mag-header .section-heading {
+            margin-bottom: 0;
+        }
+
+        .mag-mark {
+            font-size: 30px;
+            color: var(--green);
+            direction: ltr;
+            font-weight: bold;
+        }
+
+        .mag-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .mag-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid #e0e0d5;
+        }
+
+        .mag-visual {
+            min-height: 150px;
+            display: flex;
+            align-items: flex-end;
+            padding: 22px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #193f33,
+                    #2e6450
+                );
+            color: #ead8ad;
+            font-size: 32px;
+            font-weight: bold;
+            direction: ltr;
+        }
+
+        .mag-card:nth-child(2) .mag-visual {
+            background: linear-gradient(135deg, #756446, #b39a67);
+        }
+
+        .mag-card:nth-child(3) .mag-visual {
+            background: linear-gradient(135deg, #354a48, #647b6e);
+        }
+
+        .mag-content {
+            padding: 24px;
+        }
+
+        .mag-category {
+            display: inline-block;
+            font-size: 11px;
+            color: var(--green-light);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .mag-content h3 {
+            color: var(--green);
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .mag-content p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .text-link {
+            display: inline-block;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           8. فرصت‌ها و همکاری
+        ========================= */
+
+        .opportunities {
+            background: var(--white);
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .opportunity-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--cream);
+        }
+
+        .opportunity-card h3 {
+            font-size: 19px;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .opportunity-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           9. درباره آبان
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+            margin-bottom: 17px;
+        }
+
+        .about-panel {
+            padding: 35px;
+            border-radius: 22px;
+            background: var(--green);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-panel::after {
+            content: "A";
+            position: absolute;
+            left: 0;
+            bottom: -95px;
+            font-family: Arial, sans-serif;
+            font-size: 300px;
+            line-height: 1;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.035);
+            direction: ltr;
+            pointer-events: none;
+        }
+
+        .about-panel h3 {
+            color: #e7cf9c;
+            font-size: 23px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-point {
+            display: flex;
+            gap: 12px;
+            margin: 16px 0;
+            color: #e1e8e3;
+            font-size: 13px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-point span {
+            color: var(--gold);
+        }
+
+
+        /* =========================
+           10. دعوت پایانی
+        ========================= */
+
+        .final-cta {
+            padding: 65px 0;
+            background: var(--gold-light);
+        }
+
+        .final-cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .final-cta h2 {
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .final-cta p {
+            color: #606b60;
+            font-size: 14px;
+        }
+
+        .final-cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+
+        /* =========================
+           11. پابرگ
+        ========================= */
+
+        .footer {
+            background: #142f27;
+            color: #d5e0d8;
+            padding: 55px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand {
+            color: #e7cf9c;
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .footer p {
+            color: #b7c6bc;
+            font-size: 12px;
+            max-width: 350px;
+        }
+
+        .footer h3 {
+            font-size: 14px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .footer-links a {
+            color: #c0cec4;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 11px;
+            color: #aabbb0;
+        }
+
+
+        /* =========================
+           12. نمایش در موبایل
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav {
+                gap: 12px;
+            }
+
+            .nav a {
+                font-size: 12px;
+            }
+
+            .header-action {
+                display: none;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-panel {
+                max-width: 600px;
+            }
+
+            .service-grid,
+            .mag-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: 91%;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .header-inner {
+                flex-wrap: wrap;
+                padding: 13px 0;
+                gap: 10px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .brand-symbol {
+                width: 38px;
+                height: 38px;
+                font-size: 23px;
+            }
+
+            .nav {
+                width: 100%;
+                order: 2;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 7px 0;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-panel {
+                padding: 22px;
+            }
+
+            .audience-grid,
+            .service-grid,
+            .mag-grid,
+            .opportunity-grid,
+            .about-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audience-card {
+                margin-top: 15px;
+            }
+
+            .service-card {
+                padding: 24px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .process-card {
+                padding: 20px 15px;
+            }
+
+            .mag-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .final-cta-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .final-cta-actions {
+                width: 100%;
+            }
+
+            .final-cta-actions .btn {
+                flex: 1;
+            }
+
+            .footer-grid {
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 7px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+
+/* =========================
+   اتصال سربرگ اختصاصی آبان
+   ========================= */
+.aban-header {
+    padding-bottom: 10px;
+}
+.aban-header__shell {
+    overflow: visible;
+}
+.aban-brand {
+    text-decoration: none;
+    color: #ffffff;
+    gap: 10px;
+}
+.aban-brand .brand-symbol {
+    background: rgba(255,255,255,.10);
+    color: #dcc08c;
+    border: 1px solid rgba(255,255,255,.16);
+}
+.aban-brand .brand-name {
+    color: #ffffff;
+}
+.aban-brand .brand-caption {
+    color: rgba(255,255,255,.72);
+}
+.aban-nav__link {
+    text-decoration: none;
+}
+.aban-cta {
+    text-decoration: none;
+}
+.aban-menu-toggle {
+    position: relative;
+    z-index: 3;
+}
+@media (max-width: 900px) {
+    .aban-nav.is-open {
+        position: absolute;
+        display: flex;
+        top: calc(100% + 8px);
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 16px;
+        background: #022046;
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 18px;
+        box-shadow: 0 18px 45px rgba(2,32,70,.2);
+    }
+    .aban-nav.is-open .aban-nav__link {
+        min-height: 44px;
+        padding: 0 8px;
+    }
+}
