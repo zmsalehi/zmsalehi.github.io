@@ -8,7 +8,7 @@
    3) companies/sabzineh.html
 
    Put this file AFTER the existing <style> block in each HTML.
-   Hero image expected next to this CSS file as: aban-hero.png
+   Hero image expected next to this CSS file as: aban_hero.png
    ========================================================= */
 
 :root {
@@ -336,7 +336,7 @@ header .back-link:hover {
       rgba(255,255,255,.58) 46%,
       rgba(255,255,255,.08) 72%
     ),
-    url("aban-hero.png") center center / cover no-repeat !important;
+    url("aban_hero.png") center center / cover no-repeat !important;
 }
 
 .hero::before {
@@ -933,7 +933,7 @@ footer a:hover,
         rgba(255,255,255,.88) 46%,
         rgba(255,255,255,.58) 100%
       ),
-      url("aban-hero.png") 64% center / cover no-repeat !important;
+      url("aban_hero.png") 64% center / cover no-repeat !important;
   }
 
   .hero h1 {
