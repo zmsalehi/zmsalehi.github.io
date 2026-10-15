@@ -391,21 +391,6 @@ main .hero {
   color: #6c8394 !important;
 }
 
-/* Home right-side panel */
-.hero-panel {
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.24) !important;
-  background:
-    linear-gradient(145deg, rgba(2,21,47,.86), rgba(3,56,101,.72)) !important;
-  border-radius: 26px !important;
-  box-shadow: var(--aban-shadow-lg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.hero-panel-title {
-  color: var(--aban-gold-300) !important;
-}
 
 .connection {
   border-bottom-color: rgba(255,255,255,.10) !important;
@@ -863,10 +848,7 @@ footer a:hover,
     grid-template-columns: 1fr !important;
   }
 
-  .hero-panel {
-    max-width: 620px;
-  }
-}
+  
 
 @media (max-width: 780px) {
   .content {
