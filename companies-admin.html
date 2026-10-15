@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>مدیریت شرکت‌ها | آبان</title>
+<style>
+:root{--navy:#022046;--cyan:#0799b8;--gold:#d1aa68;--bg:#f6fafc;--ink:#09233f;--line:#dce8ef}*{box-sizing:border-box}body{font-family:Tahoma,Arial,sans-serif;margin:0;color:var(--ink);background:var(--bg);line-height:1.9}header{background:var(--navy);color:white;padding:18px 5vw}header h1{font-size:23px;margin:0}main{max-width:1100px;padding:22px 16px;margin:auto}a{color:inherit}header a{color:#dff5fa}section{background:white;border:1px solid var(--line);padding:22px;margin:15px 0;border-radius:17px}label{display:block;margin:12px 0 5px;font-weight:bold;font-size:14px}input,textarea,select{font:inherit;width:100%;padding:10px;border:1px solid #cbdce7;border-radius:9px}textarea{min-height:90px}button{font:inherit;padding:9px 16px;border:0;border-radius:8px;background:var(--cyan);color:white;cursor:pointer}button.secondary{background:var(--navy)}button.danger{background:#9a3640}button:disabled{opacity:.6;cursor:wait}.hidden{display:none!important}.flex{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.flex>*{min-width:0}.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}.muted{color:#647487;font-size:13px}.error{color:#a72a3a}.success{color:#18613f}.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.item{border:1px solid var(--line);padding:13px;border-radius:10px}.item p{margin:0;color:#647487;font-size:13px}.item h3{margin:0}.item button{margin:7px 0 0 6px}.check{display:flex;align-items:center;gap:8px}.check input{width:auto}.notice{border-right:4px solid var(--gold);padding-right:12px}.status{min-height:1.6em}@media(max-width:670px){.row,.list{grid-template-columns:1fr}section{padding:16px}}
+</style></head><body>
+<header><div class="flex" style="justify-content:space-between"><h1>آبان | مدیریت شرکت‌ها و تیم‌ها</h1><div class="flex"><a href="admin.html">مدیریت مسائل</a><a href="companies-dynamic.html">نمای عمومی</a><button type="button" class="secondary hidden" id="logout">خروج</button></div></div></header>
+<main>
+<section id="loginBox"><h2>ورود مدیر</h2><p class="muted">با حساب مدیر ثبت‌شده در Supabase وارد شوید.</p><form id="login"><label>ایمیل<input id="email" type="email" required autocomplete="username"></label><label>رمز<input id="password" type="password" required autocomplete="current-password"></label><p><button type="submit">ورود</button></p></form><p id="loginStatus" role="status" class="status"></p></section>
+<div class="hidden" id="app">
+<section><div class="flex" style="justify-content:space-between"><div><h2>شبکه شرکت‌ها</h2><p class="muted">ثبت و انتشار پروفایل‌ها، بدون ویرایش دستی HTML</p></div><div class="flex"><button type="button" id="new">شرکت جدید</button><button type="button" class="secondary" id="reload">به‌روزرسانی</button></div></div><p id="listStatus" role="status" class="status"></p><input id="search" type="search" placeholder="جست‌وجو در نام یا حوزه فعالیت"><div id="list" class="list" style="margin-top:15px"></div></section>
+<section id="editor" class="hidden"><h2 id="formTitle">شرکت جدید</h2><p class="muted">متن این بخش پس از انتشار برای همه بازدیدکنندگان قابل مشاهده است؛ اطلاعات محرمانه وارد نکنید.</p><form id="companyForm"><div class="row"><label>نام شرکت *<input name="name" maxlength="160" required></label><label>شناسه لاتین آدرس (slug) *<input name="slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="sabzineh"></label><label>حوزه فعالیت<input name="sector" maxlength="160"></label><label>برچسب‌ها (با ویرگول جدا شوند)<input name="tags" maxlength="400" placeholder="کشاورزی، حسگر، مدیریت آب"></label></div>
+<label>معرفی کوتاه<textarea name="short_description" maxlength="1200"></textarea></label>
+<label>درباره شرکت<textarea name="about" maxlength="6000"></textarea></label>
+<label>محصولات و راهکارها (هر مورد در یک خط)<textarea name="products" maxlength="6000"></textarea></label>
+<label>مسائل قابل حل (هر مورد در یک خط)<textarea name="problems_solved" maxlength="6000"></textarea></label>
+<label>توانمندی‌ها (هر مورد در یک خط)<textarea name="capabilities" maxlength="6000"></textarea></label>
+<label>زمینه‌های همکاری (هر مورد در یک خط)<textarea name="cooperation" maxlength="6000"></textarea></label>
+<label class="check"><input type="checkbox" name="is_published">انتشار عمومی این پروفایل</label>
+<p class="notice muted">ابتدا به صورت پیش‌نویس ذخیره کن و بعد از بررسی، گزینه انتشار را فعال کن.</p>
+<div class="flex"><button type="submit" id="save">ذخیره شرکت</button><button type="button" class="secondary" id="cancel">انصراف</button><button type="button" class="danger hidden" id="delete">حذف شرکت</button></div><p id="saveStatus" role="status" class="status"></p></form></section>
+</div></main>
+<script>
+// فقط نشانی پروژه و Publishable Key وارد شود؛ هیچ کلید Secret یا رمز مدیری در HTML قرار ندهید.
+const SUPABASE_URL='https://yxmrflrqzpstmafkonnr.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_Fu7LRMCSJ85k7_FECupFhg_FQFqdaF8';
+const $=id=>document.getElementById(id);
+
+async function allowed(permission, jwt) {
+  const response = await fetch(SUPABASE_URL.replace(/\/$/, '') + '/rest/v1/rpc/aban_has_permission', {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_PUBLISHABLE_KEY,
+      Authorization: 'Bearer ' + jwt,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({required_permission: permission})
+  });
+  if (!response.ok) throw new Error('امکان بررسی مجوز وجود ندارد. لطفاً تنظیمات Supabase را بررسی کنید.');
+  const result = await response.json();
+  if (typeof result !== 'boolean') throw new Error('پاسخ بررسی دسترسی نامعتبر است.');
+  return result;
+}
+
+const base=SUPABASE_URL.replace(/\/$/,'');
+let token=null, rows=[], selectedId=null;
+const names=['name','slug','sector','tags','short_description','about','products','problems_solved','capabilities','cooperation','is_published'];
+function msg(id,value,cls=''){let e=$(id);e.textContent=value;e.className='status '+cls;}
+async function api(path, method='GET', data){
+  const r=await fetch(base+path,{method,headers:{apikey:SUPABASE_PUBLISHABLE_KEY,...(token?{Authorization:'Bearer '+token}:{}),...(data!==undefined?{'Content-Type':'application/json'}:{}),...(method==='POST'?{Prefer:'return=representation'}:{})},...(data!==undefined?{body:JSON.stringify(data)}:{})});
+  const raw=await r.text();let value;try{value=raw?JSON.parse(raw):null}catch{value=raw}
+  if(!r.ok)throw Error(value?.message||value?.error_description||value?.msg||'خطای سرور: '+r.status);
+  return value;
+}
+$('login').addEventListener('submit',async e=>{e.preventDefault();msg('loginStatus','در حال ورود...');try{
+  const login=await api('/auth/v1/token?grant_type=password','POST',{email:$('email').value.trim(),password:$('password').value});
+  if(!login.access_token)throw Error('ورود ناموفق بود');token=login.access_token;
+  if (!(await allowed('companies',token))) throw Error('شما مجوز ورود به بخش مدیریت شرکت‌ها را ندارید.');
+  await load();$('loginBox').classList.add('hidden');$('app').classList.remove('hidden');$('logout').classList.remove('hidden');$('password').value='';
+}catch(error){token=null;msg('loginStatus',error.message,'error')}});
+$('logout').addEventListener('click',()=>{token=null;rows=[];selectedId=null;$('app').classList.add('hidden');$('logout').classList.add('hidden');$('loginBox').classList.remove('hidden');$('editor').classList.add('hidden');msg('loginStatus','از پنل خارج شدید.','success')});
+async function load(){msg('listStatus','در حال دریافت...');rows=await api('/rest/v1/aban_companies?select=*&order=created_at.desc&limit=1000');render();msg('listStatus',rows.length+' شرکت / تیم (حداکثر هزار مورد آخر)')}
+function render(){const q=$('search').value.trim().toLocaleLowerCase('fa');const box=$('list');box.replaceChildren();rows.filter(x=>(x.name+' '+x.sector).toLocaleLowerCase('fa').includes(q)).forEach(x=>{
+  const div=document.createElement('div');div.className='item';const h=document.createElement('h3');h.textContent=x.name;const p=document.createElement('p');p.textContent=x.sector+' | '+(x.is_published?'منتشرشده':'پیش‌نویس');const b=document.createElement('button');b.type='button';b.textContent='ویرایش';b.onclick=()=>edit(x.id);div.append(h,p,b);if(x.is_published){const a=document.createElement('a');a.href='company.html?slug='+encodeURIComponent(x.slug);a.target='_blank';a.rel='noopener noreferrer';a.textContent=' مشاهده صفحه عمومی ←';div.append(a)}box.append(div)
+})}
+$('search').oninput=render;$('reload').onclick=()=>load().catch(e=>msg('listStatus',e.message,'error'));
+function edit(id=null){selectedId=id;const record=rows.find(x=>x.id===id)||{};const form=$('companyForm');for(const name of names){const input=form.elements.namedItem(name);if(input.type==='checkbox')input.checked=Boolean(record[name]);else input.value=record[name]||''} $('formTitle').textContent=id?'ویرایش شرکت':'افزودن شرکت';$('delete').classList.toggle('hidden',!id);$('editor').classList.remove('hidden');msg('saveStatus','');$('editor').scrollIntoView({behavior:'smooth'})}
+$('new').onclick=()=>edit();$('cancel').onclick=()=>$('editor').classList.add('hidden');
+$('companyForm').addEventListener('submit',async e=>{e.preventDefault();const b=$('save');b.disabled=true;msg('saveStatus','در حال ذخیره...');const form=e.currentTarget;const data={};for(const n of names){const input=form.elements.namedItem(n);data[n]=input.type==='checkbox'?input.checked:input.value.trim()}
+ try{if(selectedId)await api('/rest/v1/aban_companies?id=eq.'+encodeURIComponent(selectedId),'PATCH',data);else await api('/rest/v1/aban_companies','POST',data);await load();$('editor').classList.add('hidden');msg('listStatus','شرکت ذخیره شد.','success')}catch(err){msg('saveStatus',err.message,'error')}finally{b.disabled=false}});
+$('delete').onclick=async()=>{if(!selectedId||!confirm('این شرکت حذف شود؟ این کار قابل بازگشت نیست.'))return;try{await api('/rest/v1/aban_companies?id=eq.'+encodeURIComponent(selectedId),'DELETE');$('editor').classList.add('hidden');await load()}catch(e){msg('saveStatus',e.message,'error')}};
+</script></body></html>
