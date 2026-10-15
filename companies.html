@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<link rel="stylesheet" href="aban-unified-theme.css">
+
   
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="شبکه شرکت‌ها و تیم‌های نوآور آبان">
   <title>شبکه شرکت‌ها و تیم‌های نوآور | آبان</title>
+  <link rel="stylesheet" href="aban-unified-theme.css">
 
   <style>
     :root {
@@ -286,7 +287,9 @@
 
     footer a { color: white; }
 
-    .empty {
+    .network-status { color: var(--muted); font-size: .88rem; margin: 0 0 18px; }
+
+     .empty {
       display: none;
       grid-column: 1 / -1;
       text-align: center;
@@ -361,129 +364,17 @@
         <button class="filter" data-filter="ساختمان و عمران">ساختمان و عمران</button>
       </div>
 
-      <div class="grid" id="companyGrid">
-
-        <article class="card" data-domain="کشاورزی"
-          data-search="سبزینه پرداز کشاورزی هوشمند پایش مزرعه آبیاری حسگر آب">
-          <div class="card-top">
-            <div class="logo">س</div>
-            <div><h3>سبزینه‌پرداز</h3><div class="domain">کشاورزی هوشمند</div></div>
-          </div>
-          <p>راهکار پایش مزارع برای مدیریت آبیاری، کاهش مصرف آب و کمک به تصمیم‌گیری کشاورزان.</p>
-          <div class="tags"><span class="tag">مدیریت آب</span><span class="tag">حسگر هوشمند</span></div>
-          <a class="card-link" href="companies/sabzineh.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="آب و محیط‌زیست"
-          data-search="آب نگار پایش شبکه آب تشخیص نشتی محیط زیست">
-          <div class="card-top">
-            <div class="logo">آ</div>
-            <div><h3>آب‌نگار</h3><div class="domain">آب و محیط‌زیست</div></div>
-          </div>
-          <p>ابزارهای پایش شبکه توزیع آب و شناسایی نشانه‌های نشتی برای کاهش هدررفت منابع.</p>
-          <div class="tags"><span class="tag">پایش شبکه</span><span class="tag">کاهش هدررفت</span></div>
-          <a class="card-link" href="companies/abnegar.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="انرژی"
-          data-search="انرژی بان مدیریت مصرف انرژی ساختمان بهینه سازی">
-          <div class="card-top">
-            <div class="logo">ا</div>
-            <div><h3>انرژی‌بان</h3><div class="domain">انرژی</div></div>
-          </div>
-          <p>سامانه تحلیل مصرف انرژی ساختمان و پیشنهاد اقدام‌های عملی برای بهینه‌سازی مصرف.</p>
-          <div class="tags"><span class="tag">بهره‌وری انرژی</span><span class="tag">ساختمان هوشمند</span></div>
-          <a class="card-link" href="companies/energiban.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="صنعت"
-          data-search="دیدبان صنعت پایش تجهیزات پیش بینی خرابی نگهداری">
-          <div class="card-top">
-            <div class="logo">د</div>
-            <div><h3>دیدبان صنعت</h3><div class="domain">صنعت</div></div>
-          </div>
-          <p>پایش وضعیت تجهیزات صنعتی و تحلیل داده برای پیش‌بینی خرابی و کاهش توقف تولید.</p>
-          <div class="tags"><span class="tag">نگهداری پیش‌بینانه</span><span class="tag">تحلیل داده</span></div>
-          <a class="card-link" href="companies/didban-sanat.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="هوش مصنوعی و داده"
-          data-search="داده کاو آریا هوش مصنوعی تحلیل داده پیش بینی تقاضا">
-          <div class="card-top">
-            <div class="logo">د</div>
-            <div><h3>داده‌کاو آریا</h3><div class="domain">هوش مصنوعی و داده</div></div>
-          </div>
-          <p>طراحی راهکارهای تحلیل داده و مدل‌های پیش‌بینی برای پشتیبانی از تصمیم‌گیری سازمانی.</p>
-          <div class="tags"><span class="tag">تحلیل داده</span><span class="tag">پیش‌بینی</span></div>
-          <a class="card-link" href="companies/dadehkav-aria.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="زیست‌فناوری"
-          data-search="زیست راهکار نوین زیست فناوری کنترل آلودگی محیط زیست">
-          <div class="card-top">
-            <div class="logo">ز</div>
-            <div><h3>زیست‌راهکار نوین</h3><div class="domain">زیست‌فناوری</div></div>
-          </div>
-          <p>توسعه راهکارهای زیستی نمونه برای کمک به پایش و کنترل برخی انواع آلودگی محیطی.</p>
-          <div class="tags"><span class="tag">راهکار زیستی</span><span class="tag">محیط‌زیست</span></div>
-          <a class="card-link" href="companies/zist-rahkar.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="سلامت"
-          data-search="درمان یار هوشمند سلامت نرم افزار مدیریت فرایند درمان">
-          <div class="card-top">
-            <div class="logo">د</div>
-            <div><h3>درمان‌یار هوشمند</h3><div class="domain">سلامت دیجیتال</div></div>
-          </div>
-          <p>ابزار نرم‌افزاری نمونه برای سامان‌دهی گردش کار و پیگیری فرایندهای خدمات درمانی.</p>
-          <div class="tags"><span class="tag">نرم‌افزار سلامت</span><span class="tag">مدیریت فرایند</span></div>
-          <a class="card-link" href="companies/darmanyar.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="حمل‌ونقل و لجستیک"
-          data-search="رهسپار حمل و نقل لجستیک بهینه سازی مسیر توزیع">
-          <div class="card-top">
-            <div class="logo">ر</div>
-            <div><h3>رهسپار</h3><div class="domain">حمل‌ونقل و لجستیک</div></div>
-          </div>
-          <p>برنامه‌ریزی مسیر و توزیع برای استفاده بهتر از ظرفیت ناوگان و کاهش زمان تحویل.</p>
-          <div class="tags"><span class="tag">بهینه‌سازی مسیر</span><span class="tag">لجستیک</span></div>
-          <a class="card-link" href="companies/rahspar.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="آموزش"
-          data-search="یادمانه آموزش یادگیری تعاملی فناوری آموزشی">
-          <div class="card-top">
-            <div class="logo">ی</div>
-            <div><h3>یادمانه</h3><div class="domain">آموزش و یادگیری</div></div>
-          </div>
-          <p>طراحی تجربه‌ها و ابزارهای یادگیری تعاملی برای آموزش مهارت‌ها و محتوای تخصصی.</p>
-          <div class="tags"><span class="tag">یادگیری تعاملی</span><span class="tag">فناوری آموزشی</span></div>
-          <a class="card-link" href="companies/yadmaneh.html">مشاهده پروفایل شرکت ←</a>
-        </article>
-
-        <article class="card" data-domain="ساختمان و عمران"
-          data-search="سازه نگر ساختمان عمران پایش سازه حسگر تحلیل داده">
-          <div class="card-top">
-            <div class="logo">س</div>
-            <div><h3>سازه‌نگر</h3><div class="domain">ساختمان و عمران</div></div>
-          </div>
-          <p>پایش وضعیت سازه‌ها با استفاده از داده‌های حسگرها و تحلیل تغییرات در طول زمان.</p>
-          <div class="tags"><span class="tag">پایش سازه</span><span class="tag">تحلیل حسگر</span></div>
-          <a class="card-link" href="companies/sazeh-negar.html">مشاهده پروفایل شرکت ←</a>
-        </article>
+      <p id="networkStatus" class="network-status" role="status" aria-live="polite">در حال دریافت اطلاعات شرکت‌ها...</p>
+       <div class="grid" id="companyGrid">
+        
 
         <div class="empty" id="emptyMessage">موردی با این عبارت یا حوزه پیدا نشد.</div>
       </div>
 
-      <p class="notice">
-        توجه: نام‌ها و معرفی‌های این صفحه فرضی و صرفاً برای آزمایش ساختار سایت هستند.
-      </p>
-
       <section class="cta" id="join">
         <div>
-          <h2>می‌خواهید در شبکه آبان معرفی شوید؟</h2>
-          <p>توانمندی، محصول، فناوری یا راهکار خود را برای بررسی و معرفی به آبان ارائه کنید.</p>
+          <h2>می‌خواهید شرکت شما در شبکه آبان معرفی شود؟</h2>
+          <p>توانمندی، محصول، فناوری یا راهکار خود را ثبت کنید؛ انتشار پروفایل پس از بررسی و تأیید آبان انجام می‌شود.</p>
         </div>
         <a class="button"
           href="https://forms.gle/mDLAuRdTJF8zM4P5A"
@@ -500,43 +391,82 @@
   </footer>
 
   <script>
+    // Publishable Key عمومی است؛ مجوز دسترسی واقعی باید در Supabase RLS کنترل شود.
+    const SUPABASE_URL = 'https://yxmrflrqzpstmafkonnr.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Fu7LRMCSJ85k7_FECupFhg_FQFqdaF8';
     const searchInput = document.getElementById('searchInput');
-    const cards = [...document.querySelectorAll('.card')];
+    const grid = document.getElementById('companyGrid');
     const filters = [...document.querySelectorAll('.filter')];
     const emptyMessage = document.getElementById('emptyMessage');
+    const networkStatus = document.getElementById('networkStatus');
     let activeFilter = 'all';
+    let companies = [];
 
-    function updateCards() {
-      const query = searchInput.value.trim().toLocaleLowerCase('fa');
-      let count = 0;
-
-      cards.forEach(card => {
-        const text = (
-          card.dataset.search + ' ' + card.innerText
-        ).toLocaleLowerCase('fa');
-
-        const matchesSearch = text.includes(query);
-        const matchesFilter =
-          activeFilter === 'all' || card.dataset.domain === activeFilter;
-        const show = matchesSearch && matchesFilter;
-
-        card.style.display = show ? 'flex' : 'none';
-        if (show) count++;
-      });
-
-      emptyMessage.style.display = count ? 'none' : 'block';
+    function addText(parent, tag, className, value) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = value || '';
+      parent.appendChild(el);
+      return el;
     }
 
-    searchInput.addEventListener('input', updateCards);
+    function createCard(company) {
+      const card = document.createElement('article');
+      card.className = 'card';
+      const top = addText(card, 'div', 'card-top', '');
+      const name = String(company.name || 'شرکت بدون نام');
+      addText(top, 'div', 'logo', name.slice(0, 1));
+      const heading = addText(top, 'div', '', '');
+      addText(heading, 'h3', '', name);
+      addText(heading, 'div', 'domain', company.sector || 'حوزه فعالیت ثبت نشده');
+      addText(card, 'p', '', company.short_description || 'برای آشنایی بیشتر، پروفایل شرکت را مشاهده کنید.');
+      const tagBox = addText(card, 'div', 'tags', '');
+      String(company.tags || '').replace(/،/g, ',').split(',').map(x => x.trim()).filter(Boolean).slice(0, 6)
+        .forEach(tag => addText(tagBox, 'span', 'tag', tag));
+      const a = addText(card, 'a', 'card-link', 'مشاهده پروفایل شرکت ←');
+      a.href = 'company.html?slug=' + encodeURIComponent(company.slug);
+      return card;
+    }
 
-    filters.forEach(button => {
-      button.addEventListener('click', () => {
-        filters.forEach(item => item.classList.remove('active'));
-        button.classList.add('active');
-        activeFilter = button.dataset.filter;
-        updateCards();
+    function render() {
+      const term = searchInput.value.trim().toLocaleLowerCase('fa');
+      const shown = companies.filter(company => {
+        const searchable = [company.name, company.sector, company.short_description, company.tags]
+          .map(x => String(x || '')).join(' ').toLocaleLowerCase('fa');
+        const sector = String(company.sector || '').toLocaleLowerCase('fa');
+        return searchable.includes(term) && (activeFilter === 'all' || sector.includes(activeFilter.toLocaleLowerCase('fa')));
       });
-    });
+      grid.querySelectorAll('.card').forEach(card => card.remove());
+      shown.forEach(c => grid.insertBefore(createCard(c), emptyMessage));
+      emptyMessage.style.display = shown.length ? 'none' : 'block';
+      emptyMessage.textContent = companies.length ? 'شرکتی با این جست‌وجو یا حوزه پیدا نشد.' : 'هنوز شرکت تأیید و منتشرشده‌ای در شبکه آبان وجود ندارد.';
+      networkStatus.textContent = shown.length + ' شرکت یا تیم نمایش داده می‌شود.';
+    }
+
+    searchInput.addEventListener('input', render);
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      activeFilter = button.dataset.filter;
+      render();
+    }));
+
+    (async () => {
+      try {
+        const url = SUPABASE_URL.replace(/\/$/, '') +
+          '/rest/v1/aban_companies?select=slug,name,sector,short_description,tags&is_published=eq.true&order=created_at.desc&limit=1000';
+        const response = await fetch(url, { headers: { apikey: SUPABASE_PUBLISHABLE_KEY } });
+        if (!response.ok) throw new Error('خطای دریافت اطلاعات از شبکه آبان (' + response.status + ')');
+        const data = await response.json();
+        if (!Array.isArray(data)) throw new Error('پاسخ نامعتبر از سرور');
+        companies = data.filter(c => c.slug && c.name);
+        render();
+      } catch (err) {
+        grid.querySelectorAll('.card').forEach(card => card.remove());
+        emptyMessage.style.display = 'none';
+        networkStatus.textContent = 'امکان نمایش شبکه شرکت‌ها وجود ندارد. لطفاً دوباره تلاش کنید. (' + err.message + ')';
+      }
+    })();
   </script>
 </body>
 </html>
