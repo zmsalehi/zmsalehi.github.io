@@ -20,7 +20,7 @@
 const ROOT='https://yxmrflrqzpstmafkonnr.supabase.co',KEY='sb_publishable_Fu7LRMCSJ85k7_FECupFhg_FQFqdaF8';
 const $=id=>document.getElementById(id), slugOK=s=>/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(s||'');
 function node(tag,txt,cls){const x=document.createElement(tag);if(txt!==undefined)x.textContent=String(txt);if(cls)x.className=cls;return x}
-function urlSafe(raw,image=false){try{const u=new URL(raw,location.href);if(!['https:','http:'].includes(u.protocol))return null;if(image && u.protocol!=='https:' && u.origin!==location.origin)return null;return u.href}catch{return null}}
+function urlSafe(raw,image=false){if(typeof raw!=='string'||!raw.trim())return null;try{const u=new URL(raw.trim(),location.href);if(!['https:','http:'].includes(u.protocol))return null;if(image && u.protocol!=='https:' && u.origin!==location.origin)return null;return u.href}catch{return null}}
 function addInline(dst,s){ // Markdown inline: safe DOM nodes, never inject untrusted HTML.
  const re=/(!?\[([^\]]*)\]\(([^)]+)\)|\*\*(.+?)\*\*|__(.+?)__|(?<!\*)\*([^*\n]+)\*(?!\*)|`([^`]+)`)/g;let at=0,m;
  while((m=re.exec(s))){if(m.index>at)dst.append(document.createTextNode(s.slice(at,m.index)));if(m[1]){const src=urlSafe(m[3],m[1].startsWith('!'));if(src){if(m[1].startsWith('!')){const im=node('img');im.src=src;im.alt=m[2];im.loading='lazy';dst.append(im)}else{const a=node('a',m[2]);a.href=src;if(new URL(src).origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer'}dst.append(a)}}else dst.append(document.createTextNode(m[0]));}else if(m[4]||m[5]){const b=node('strong',m[4]||m[5]);dst.append(b)}else if(m[6])dst.append(node('em',m[6]));else dst.append(node('code',m[7]));at=re.lastIndex}if(at<s.length)dst.append(document.createTextNode(s.slice(at)));
