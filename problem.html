@@ -1,11 +1,12 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex">
-  <title>ثبت مسئله | آبان</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="noindex" name="robots"/>
+<title>ثبت مسئله | آبان</title>
+<style>
     :root{--navy:#022046;--deep:#02152f;--cyan:#07a5c0;--gold:#d1aa68;--ink:#09233f;--muted:#647487;--line:#dbe7ed;--bg:#f6fafc}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/2 Tahoma,Arial,sans-serif}a{color:inherit;text-decoration:none}
     header{background:var(--deep);color:white;padding:16px 0}.wrap{width:min(940px,92%);margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{font-size:26px;font-weight:bold;color:#fff}.back{font-size:13px;color:#d6eef5}
@@ -15,39 +16,39 @@
     fieldset{border:0;border-top:1px solid var(--line);padding:23px 0 12px;margin:0}legend{font-size:18px;font-weight:700;color:var(--navy);padding:0 0 4px 14px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}.field{display:flex;flex-direction:column;gap:5px}.full{grid-column:1/-1}label{font-size:13px;font-weight:bold}label .req{color:#c64b4b}input,select,textarea{width:100%;font:inherit;color:var(--ink);border:1px solid #cbdce5;background:#fff;border-radius:10px;padding:10px 12px;outline-color:var(--cyan)}textarea{min-height:120px;resize:vertical}small{font-size:11px;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:20px}.btn{border:0;border-radius:11px;padding:12px 23px;background:var(--navy);color:#fff;font:inherit;font-weight:bold;cursor:pointer}.btn:hover{background:#033865}.status{color:#6d562b;font-size:13px}.disclaimer{margin-top:12px;font-size:12px;color:var(--muted)}footer{text-align:center;background:var(--deep);color:#d5e6ed;padding:17px;font-size:12px}
     @media(max-width:650px){.fields{grid-template-columns:1fr}.top{flex-wrap:wrap}}
   </style>
-</head>
-<body>
-<header><div class="wrap top"><a class="logo" href="index.html">آبان</a><a class="back" href="index.html">← بازگشت به صفحه اصلی</a></div></header>
+<link href="aban-final.css" rel="stylesheet"/></head>
+<body class="aban-inner">
+<header class="site-header"><div class="wrap nav-wrap"><a aria-label="آبان، صفحه اصلی" class="brand" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><span><strong>آبان</strong><small>پلتفرم میانی نوآوری</small></span></a><button aria-controls="navLinks" aria-expanded="false" aria-label="نمایش منو" class="menu-toggle" id="menuToggle" type="button">☰</button><nav aria-label="منوی اصلی" class="nav-links" id="navLinks"><a href="index.html#home">خانه</a><a href="index.html#audiences">برای سازمان‌ها</a><a href="index.html#audiences">برای شرکت‌ها و تیم‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#companies">شبکه شرکت‌ها</a><a href="index.html#services">خدمات</a><a href="index.html#mag">مجله آبان</a><a href="index.html#about">درباره آبان</a></nav><a class="button primary nav-action" href="index.html#contact">شروع همکاری <span aria-hidden="true">←</span></a></div></header>
 <main class="wrap">
-  <div class="hero"><span class="tag">مسائل و فرصت‌های همکاری</span><h1>معرفی مسئله به آبان</h1><p>مسئله یا نیاز سازمان خود را شرح دهید تا امکان بررسی آن و شناسایی ظرفیت‌های مناسب برای همکاری فراهم شود.</p></div>
-  <section class="panel">
-    <div class="notice"><strong>حریم خصوصی:</strong> پس از فعال‌سازی اتصال، اطلاعات این فرم برای بررسی مسئله توسط تیم آبان ذخیره می‌شود. لطفاً اطلاعات بسیار محرمانه، رمز عبور یا اسرار تجاری را در این مرحله وارد نکنید.</div>
-    <form id="problemForm">
-      <fieldset><legend>۱. اطلاعات سازمان و نماینده</legend><div class="fields">
-        <div class="field"><label for="org">نام سازمان یا مجموعه <span class="req">*</span></label><input id="org" name="organization" required maxlength="150" autocomplete="organization"></div>
-        <div class="field"><label for="contact">نام فرد رابط <span class="req">*</span></label><input id="contact" name="contactName" required maxlength="120" autocomplete="name"></div>
-        <div class="field"><label for="role">سمت فرد رابط</label><input id="role" name="role" maxlength="100"></div>
-        <div class="field"><label for="email">ایمیل ارتباطی <span class="req">*</span></label><input id="email" name="email" type="email" required maxlength="180" dir="ltr" autocomplete="email"></div>
-        <div class="field"><label for="phone">تلفن تماس <span class="req">*</span></label><input id="phone" name="phone" type="tel" required minlength="10" maxlength="20" inputmode="tel" dir="ltr" autocomplete="tel" placeholder="مثلاً 09123456789 یا 02112345678" aria-describedby="phoneHelp"><small id="phoneHelp">شماره موبایل یا تلفن ثابت با کد شهر؛ اعداد فارسی نیز پذیرفته می‌شوند.</small></div>
-      </div></fieldset>
-      <fieldset><legend>۲. مشخصات مسئله</legend><div class="fields">
-        <div class="field full"><label for="title">عنوان کوتاه مسئله <span class="req">*</span></label><input id="title" name="title" maxlength="180" required placeholder="مثلاً: کاهش هدررفت آب در شبکه توزیع"></div>
-        <div class="field"><label for="domain">حوزه مسئله <span class="req">*</span></label><select id="domain" name="domain" required><option value="">انتخاب کنید</option><option>آب و محیط‌زیست</option><option>کشاورزی</option><option>انرژی</option><option>صنعت و تولید</option><option>هوش مصنوعی و داده</option><option>سلامت</option><option>زیست‌فناوری</option><option>حمل‌ونقل و لجستیک</option><option>آموزش</option><option>ساختمان و عمران</option><option>سایر</option></select></div>
-        <div class="field"><label for="stage">مرحله فعلی مسئله</label><select id="stage" name="stage"><option value="">انتخاب کنید</option><option>در حال شناسایی و تعریف</option><option>تعریف‌شده، نیازمند راهکار</option><option>دارای راهکار اولیه، نیازمند توسعه</option><option>نیازمند مجری برای پیاده‌سازی</option><option>سایر</option></select></div>
-        <div class="field full"><label for="details">شرح مسئله و وضعیت موجود <span class="req">*</span></label><textarea id="details" name="description" required minlength="20" maxlength="5000" placeholder="مسئله در چه شرایطی رخ می‌دهد؟ چه محدودیت یا مشکلی ایجاد کرده است؟"></textarea></div>
-        <div class="field full"><label for="result">نتیجه یا خروجی مورد انتظار <span class="req">*</span></label><textarea id="result" name="desiredOutcome" required minlength="10" maxlength="3000" placeholder="چه تغییری یا چه خروجی ملموسی مدنظر شماست؟"></textarea></div>
-      </div></fieldset>
-      <fieldset><legend>۳. شرایط همکاری (اختیاری)</legend><div class="fields">
-        <div class="field"><label for="timeline">بازه زمانی مدنظر</label><select id="timeline" name="timeline"><option value="">مشخص نیست</option><option>کمتر از سه ماه</option><option>سه تا شش ماه</option><option>شش تا دوازده ماه</option><option>بیش از یک سال</option></select></div>
-        <div class="field"><label for="budget">وضعیت بودجه</label><select id="budget" name="budget"><option value="">ترجیح می‌دهم فعلاً اعلام نکنم</option><option>بودجه مشخص شده است</option><option>در حال برآورد بودجه</option><option>هنوز بودجه مشخص نیست</option></select></div>
-        <div class="field full"><label for="constraints">ملاحظات و توضیحات تکمیلی</label><textarea id="constraints" name="constraints" maxlength="3000" placeholder="محدودیت‌های اجرایی، امکانات موجود یا شرایط موردتوجه"></textarea></div>
-      </div></fieldset>
-      <div class="actions"><button class="btn" type="submit">ثبت مسئله</button><span id="status" class="status" aria-live="polite"></span></div>
-      <p class="disclaimer">با ثبت فرم، موافقت می‌کنید اطلاعات واردشده برای بررسی درخواست همکاری توسط آبان نگهداری شود. این فرم هنوز امکان بارگذاری فایل ندارد.</p>
-    </form>
-  </section>
+<div class="hero"><span class="tag">مسائل و فرصت‌های همکاری</span><h1>معرفی مسئله به آبان</h1><p>مسئله یا نیاز سازمان خود را شرح دهید تا امکان بررسی آن و شناسایی ظرفیت‌های مناسب برای همکاری فراهم شود.</p></div>
+<section class="panel">
+<div class="notice"><strong>حریم خصوصی:</strong> پس از فعال‌سازی اتصال، اطلاعات این فرم برای بررسی مسئله توسط تیم آبان ذخیره می‌شود. لطفاً اطلاعات بسیار محرمانه، رمز عبور یا اسرار تجاری را در این مرحله وارد نکنید.</div>
+<form id="problemForm">
+<fieldset><legend>۱. اطلاعات سازمان و نماینده</legend><div class="fields">
+<div class="field"><label for="org">نام سازمان یا مجموعه <span class="req">*</span></label><input autocomplete="organization" id="org" maxlength="150" name="organization" required=""/></div>
+<div class="field"><label for="contact">نام فرد رابط <span class="req">*</span></label><input autocomplete="name" id="contact" maxlength="120" name="contactName" required=""/></div>
+<div class="field"><label for="role">سمت فرد رابط</label><input id="role" maxlength="100" name="role"/></div>
+<div class="field"><label for="email">ایمیل ارتباطی <span class="req">*</span></label><input autocomplete="email" dir="ltr" id="email" maxlength="180" name="email" required="" type="email"/></div>
+<div class="field"><label for="phone">تلفن تماس <span class="req">*</span></label><input aria-describedby="phoneHelp" autocomplete="tel" dir="ltr" id="phone" inputmode="tel" maxlength="20" minlength="10" name="phone" placeholder="مثلاً 09123456789 یا 02112345678" required="" type="tel"/><small id="phoneHelp">شماره موبایل یا تلفن ثابت با کد شهر؛ اعداد فارسی نیز پذیرفته می‌شوند.</small></div>
+</div></fieldset>
+<fieldset><legend>۲. مشخصات مسئله</legend><div class="fields">
+<div class="field full"><label for="title">عنوان کوتاه مسئله <span class="req">*</span></label><input id="title" maxlength="180" name="title" placeholder="مثلاً: کاهش هدررفت آب در شبکه توزیع" required=""/></div>
+<div class="field"><label for="domain">حوزه مسئله <span class="req">*</span></label><select id="domain" name="domain" required=""><option value="">انتخاب کنید</option><option>آب و محیط‌زیست</option><option>کشاورزی</option><option>انرژی</option><option>صنعت و تولید</option><option>هوش مصنوعی و داده</option><option>سلامت</option><option>زیست‌فناوری</option><option>حمل‌ونقل و لجستیک</option><option>آموزش</option><option>ساختمان و عمران</option><option>سایر</option></select></div>
+<div class="field"><label for="stage">مرحله فعلی مسئله</label><select id="stage" name="stage"><option value="">انتخاب کنید</option><option>در حال شناسایی و تعریف</option><option>تعریف‌شده، نیازمند راهکار</option><option>دارای راهکار اولیه، نیازمند توسعه</option><option>نیازمند مجری برای پیاده‌سازی</option><option>سایر</option></select></div>
+<div class="field full"><label for="details">شرح مسئله و وضعیت موجود <span class="req">*</span></label><textarea id="details" maxlength="5000" minlength="20" name="description" placeholder="مسئله در چه شرایطی رخ می‌دهد؟ چه محدودیت یا مشکلی ایجاد کرده است؟" required=""></textarea></div>
+<div class="field full"><label for="result">نتیجه یا خروجی مورد انتظار <span class="req">*</span></label><textarea id="result" maxlength="3000" minlength="10" name="desiredOutcome" placeholder="چه تغییری یا چه خروجی ملموسی مدنظر شماست؟" required=""></textarea></div>
+</div></fieldset>
+<fieldset><legend>۳. شرایط همکاری (اختیاری)</legend><div class="fields">
+<div class="field"><label for="timeline">بازه زمانی مدنظر</label><select id="timeline" name="timeline"><option value="">مشخص نیست</option><option>کمتر از سه ماه</option><option>سه تا شش ماه</option><option>شش تا دوازده ماه</option><option>بیش از یک سال</option></select></div>
+<div class="field"><label for="budget">وضعیت بودجه</label><select id="budget" name="budget"><option value="">ترجیح می‌دهم فعلاً اعلام نکنم</option><option>بودجه مشخص شده است</option><option>در حال برآورد بودجه</option><option>هنوز بودجه مشخص نیست</option></select></div>
+<div class="field full"><label for="constraints">ملاحظات و توضیحات تکمیلی</label><textarea id="constraints" maxlength="3000" name="constraints" placeholder="محدودیت‌های اجرایی، امکانات موجود یا شرایط موردتوجه"></textarea></div>
+</div></fieldset>
+<div class="actions"><button class="btn" type="submit">ثبت مسئله</button><span aria-live="polite" class="status" id="status"></span></div>
+<p class="disclaimer">با ثبت فرم، موافقت می‌کنید اطلاعات واردشده برای بررسی درخواست همکاری توسط آبان نگهداری شود. این فرم هنوز امکان بارگذاری فایل ندارد.</p>
+</form>
+</section>
 </main>
-<footer>آبان | اتصال نوآوری به مسائل واقعی</footer>
+<footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand footer-logo" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><strong>آبان</strong></a><p>پیونددهنده نیازها و ظرفیت‌های نوآوری؛ برای شکل‌گیری همکاری‌های هدفمند و اثرگذار.</p></div><div><h3>دسترسی سریع</h3><a href="index.html#audiences">برای سازمان‌ها</a><a href="companies.html">شبکه شرکت‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#services">خدمات</a><a href="mag.html">مجله آبان</a></div><div><h3>ارتباط با آبان</h3><a href="problem.html">ثبت مسئله</a><a href="https://forms.gle/mDLAuRdTJF8zM4P5A" rel="noopener noreferrer" target="_blank">ثبت توانمندی</a><a href="index.html#about">درباره آبان</a></div><div><h3>سایر پیوندها</h3><a href="mag-submit.html">ارسال محتوا به مجله</a><a href="companies.html">جست‌وجوی شرکت‌ها</a><a href="index.html#contact">شروع همکاری</a></div></div><div class="footer-bottom"><span>تمامی حقوق این وب‌سایت متعلق به آبان است.</span><span>با هم، نوآوری را به عمل تبدیل می‌کنیم.</span></div></div></footer>
 <script>
   // این دو مقدار را از بخش Project Settings / API Keys در Supabase بگیرید.
   // فقط publishable key را اینجا قرار دهید. secret/service_role را هرگز وارد نکنید.
@@ -130,4 +131,4 @@
     }
   });
 </script>
-</body></html>
+<script src="shared-menu.js" defer></script></body></html>
