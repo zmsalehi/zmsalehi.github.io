@@ -290,92 +290,70 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 }
 
 /* ==========================================
-   AUDIENCES SECTION - FINAL REDESIGN
+   AUDIENCES — proportional redesign (consolidated)
 ========================================== */
-
-/* حذف فاصله بین Hero و بخش بعدی */
-.hero {
-  margin-bottom: 0 !important;
-}
-
 #audiences {
-  margin-top: 0 !important;
-  padding: 38px 0 48px !important;
+  width: 100%;
+  margin: 0 !important;
+  padding: 45px 0 58px !important;
   background: #edf7fb !important;
 }
-
-/* عرض استاندارد محتوا */
 #audiences > .wrap {
-  width: min(1320px, 92%) !important;
+  width: min(1400px, 94%) !important;
   margin-inline: auto !important;
 }
-
-/* عنوان */
 #audiences .section-title {
-  margin-bottom: 22px !important;
   text-align: center;
+  margin-bottom: 28px !important;
 }
-
 #audiences .section-title h2 {
-  font-size: 36px !important;
+  font-size: 43px !important;
   font-weight: 800;
   line-height: 1.45;
+  margin: 0 0 7px;
   color: #102f50;
-  margin-bottom: 4px;
 }
-
 #audiences .section-title p {
-  font-size: 17px !important;
+  font-size: 19px !important;
+  font-weight: 600;
   line-height: 1.8;
   color: #526e82;
 }
-
-/* چینش دو کارت */
 #audiences .audience-grid {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 20px !important;
+  gap: 22px !important;
   align-items: stretch;
 }
-
-/* ظاهر کلی کارت */
 #audiences .audience-card {
   display: grid !important;
-  grid-template-columns: 170px minmax(0, 1fr) !important;
+  grid-template-columns: 205px minmax(0, 1fr) !important;
   align-items: stretch !important;
-  gap: 22px !important;
-
-  min-width: 0;
-  min-height: 0 !important;
+  gap: 24px !important;
   width: 100% !important;
+  min-width: 0 !important;
+  min-height: 375px !important;
   height: auto !important;
-
-  padding: 18px !important;
+  padding: 20px !important;
   margin: 0 !important;
-
-  background: #ffffff !important;
+  background: #fff !important;
   border: 1px solid #d7e8f0 !important;
-  border-radius: 22px !important;
-
-  box-shadow: 0 8px 22px rgba(13, 55, 91, .05);
+  border-radius: 24px !important;
+  box-shadow: 0 10px 26px rgba(13,55,91,.06);
   transition: transform .25s, box-shadow .25s;
 }
-
 #audiences .audience-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 34px rgba(13, 55, 91, .10);
+  box-shadow: 0 15px 34px rgba(13,55,91,.10);
 }
-
-/* تصاویر */
 #audiences .audience-image {
   width: 100%;
   height: 100%;
-  min-height: 265px;
+  min-height: 330px;
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 15px;
   background: #e5f3f9;
 }
-
 #audiences .audience-image img {
   display: block;
   width: 100%;
@@ -383,153 +361,95 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
   object-fit: cover;
   object-position: center;
 }
-
-/* محتوای متنی */
 #audiences .audience-content {
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-/* تیتر کارت */
 #audiences .audience-content h3 {
-  font-size: 23px !important;
+  font-size: 27px !important;
   font-weight: 800;
   line-height: 1.5;
   color: #102f50;
-  margin: 0 0 8px !important;
+  margin: 0 0 9px !important;
 }
-
-/* توضیح کارت */
 #audiences .audience-content > p {
-  font-size: 15.5px !important;
+  font-size: 18px !important;
   font-weight: 600;
-  line-height: 2;
+  line-height: 1.9;
+  margin: 0 0 17px !important;
   color: #536b80;
-  margin: 0 0 15px !important;
 }
-
-/* مجموعه لینک‌ها */
 #audiences .audience-links {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 9px;
   margin-top: auto;
 }
-
-/* هر لینک */
 #audiences .audience-links a {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
-
-  padding: 9px 13px;
+  padding: 12px 15px;
+  min-height: 54px;
+  border-radius: 13px;
+  border: 1px solid #e0edf4;
   background: #f1f8fb;
-  border: 1px solid #e2eef4;
-  border-radius: 11px;
-
   color: #14496f;
-  font-size: 14px;
+  font-size: 16px !important;
   font-weight: 700;
-  line-height: 1.6;
-
+  line-height: 1.7;
   transition: background .2s, transform .2s;
 }
-
 #audiences .audience-links a:hover {
-  background: #e1f3f6;
+  background: #def2f5;
   transform: translateX(-2px);
 }
-
-/* فلش لینک */
 #audiences .link-arrow {
   color: #078f9c;
-  font-size: 18px;
+  font-size: 20px;
   flex-shrink: 0;
 }
-
-/* تبلت */
 @media (max-width: 1100px) {
-  #audiences .audience-card {
-    grid-template-columns: 125px minmax(0, 1fr) !important;
-    gap: 14px !important;
-  }
-
-  #audiences .audience-content h3 {
-    font-size: 19px !important;
-  }
-
-  #audiences .audience-links a {
-    font-size: 12px;
-  }
-}
-
-/* موبایل */
-@media (max-width: 760px) {
-  #audiences {
-    padding: 30px 0 38px !important;
-  }
-
-  #audiences .section-title h2 {
-    font-size: 29px !important;
-  }
-
   #audiences .audience-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
   }
-
   #audiences .audience-card {
-    grid-template-columns: 115px minmax(0, 1fr) !important;
-    padding: 12px !important;
-    gap: 13px !important;
+    grid-template-columns: 190px minmax(0,1fr) !important;
+    min-height: 340px !important;
   }
-
-  #audiences .audience-image {
-    min-height: 220px;
+}
+@media (max-width: 760px) {
+  #audiences { padding: 34px 0 42px !important; }
+  #audiences .section-title h2 { font-size: 32px !important; }
+  #audiences .section-title p { font-size: 16px !important; }
+  #audiences .audience-card {
+    grid-template-columns: 125px minmax(0,1fr) !important;
+    gap: 14px !important;
+    padding: 14px !important;
+    min-height: 0 !important;
   }
-
-  #audiences .audience-content h3 {
-    font-size: 17px !important;
-  }
-
-  #audiences .audience-content > p {
-    font-size: 13px !important;
-  }
-
+  #audiences .audience-image { min-height: 270px; }
+  #audiences .audience-content h3 { font-size: 21px !important; }
+  #audiences .audience-content > p { font-size: 15px !important; }
   #audiences .audience-links a {
-    font-size: 12px;
-    padding: 8px;
+    font-size: 13px !important;
+    min-height: 44px;
+    padding: 8px 10px;
   }
 }
-
-/* موبایل‌های کوچک */
-@media (max-width: 460px) {
-  #audiences .audience-card {
-    grid-template-columns: 1fr !important;
-  }
-
-  #audiences .audience-image {
-    height: 170px;
-    min-height: 0;
-  }
+@media (max-width: 480px) {
+  #audiences .audience-card { grid-template-columns: 1fr !important; }
+  #audiences .audience-image { height: 190px; min-height: 0; }
 }
 
-/* اتصال بخش Hero به از کجا شروع کنم */
-
-.hero {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-#audiences {
-    margin-top: 0 !important;
-    padding-top: 35px !important;
-}
-
-/* جلوگیری از ایجاد فاصله توسط بخش والد */
-.hero + #audiences {
-    margin-top: 0 !important;
+/* Reduce visual gap before the opportunities section */
+#opportunities { padding-top: 38px !important; }
+#opportunities .section-title { margin-bottom: 24px !important; }
+#opportunities .section-title h2 { font-size: 38px; line-height: 1.5; }
+@media (max-width: 760px) {
+  #opportunities { padding-top: 28px !important; }
+  #opportunities .section-title h2 { font-size: 28px; }
 }
