@@ -31,3 +31,59 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 @media(max-width:1080px){.nav-links{gap:9px}.nav-links a{font-size:12px}.aban-inner .site-footer .footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.nav-wrap{min-height:72px}.brand img{width:48px;height:48px}.brand strong{font-size:25px}.hero{min-height:450px;background:linear-gradient(270deg,#ffffffed,#ffffffa6),url('aban_hero.png') 45% center/cover no-repeat}.hero-content{min-height:450px}.hero h1{font-size:36px}.hero-copy{padding:35px 0}.section{padding:54px 0}.cards.three{grid-template-columns:1fr}.cards.four{grid-template-columns:1fr 1fr}.section-title.split{flex-wrap:wrap}.site-footer .footer-grid,.aban-inner .site-footer .footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.cards.four{grid-template-columns:1fr}.site-footer .footer-grid,.aban-inner .site-footer .footer-grid{grid-template-columns:1fr}.hero-choice{min-height:80px}}
+
+/* ========================================
+   ABAN HEADER - FINAL IMPROVEMENTS
+======================================== */
+
+@media (min-width: 1081px) {
+
+  .site-header .nav-wrap {
+    min-height: 105px;
+    gap: 24px;
+  }
+
+  /* لوگو و نوشته برند */
+  .site-header .brand {
+    gap: 13px;
+    flex-shrink: 0;
+  }
+
+  .site-header .brand img {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+  }
+
+  .site-header .brand strong {
+    font-size: 43px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .site-header .brand small {
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 3px;
+  }
+
+  /* گزینه‌های منو */
+  .site-header .nav-links {
+    gap: clamp(20px, 2vw, 34px);
+  }
+
+  .site-header .nav-links a {
+    font-size: 16px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  /* دکمه شروع همکاری */
+  .site-header .nav-action {
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 22px;
+    min-height: 53px;
+    border-radius: 14px;
+  }
+}
