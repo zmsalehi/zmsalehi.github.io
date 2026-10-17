@@ -1,0 +1,11 @@
+/* Aban company profile: shared navigation, typography and footer from home-redesign.css */
+.company-profile-main{max-width:1020px;margin:0 auto;padding:38px 0 75px;min-height:55vh}
+.company-profile-main .page-panel{padding:30px;margin:0 0 20px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow)}
+.company-profile-main h1{font-size:clamp(28px,3.2vw,40px);line-height:1.5;margin:0 0 10px;color:var(--navy)}
+.company-profile-main h2{font-size:clamp(20px,2vw,26px);line-height:1.6;color:var(--navy);margin:0 0 12px}
+.company-profile-main p{line-height:2;color:#50687c;font-size:15px}
+.company-profile-main .sector{color:var(--teal);font-weight:700}
+.company-profile-main .content{white-space:pre-wrap;overflow-wrap:anywhere;color:#415b70;line-height:2.1}
+.company-profile-main .warn{background:#f0f7fb;border-radius:10px;border:1px solid #d9e7ef;padding:12px 16px;font-size:13px;color:#567188}
+.company-profile-main .button.primary{width:max-content}
+@media(max-width:760px){.company-profile-main{padding:25px 0 50px}.company-profile-main .page-panel{padding:20px}}

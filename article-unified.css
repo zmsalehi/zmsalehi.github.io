@@ -1,0 +1,18 @@
+/* Aban editorial article: preserve reader mechanics, unify site chrome and colors */
+body{background:#f5f9fc;color:var(--ink)}
+.unified-article-banner{background:linear-gradient(180deg,#eef6fb,#f7fbfe);border-bottom:1px solid var(--line);color:var(--navy);padding:40px 0 34px}
+.unified-article-banner h1{color:var(--navy);font-size:clamp(29px,3.5vw,44px);line-height:1.6}
+.unified-article-banner p{color:#546d80}
+.unified-article-banner .eyebrow{color:var(--teal)}
+.unified-article-banner a{color:#0c658a}
+.article-layout{margin-block:35px!important;gap:24px}
+.article-layout .article,.article-layout .side,.related{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 6px 22px #15374f09}
+.article-layout .article{padding:clamp(20px,3vw,40px);color:#294459;line-height:2.15}
+.article-layout .article h2,.article-layout .article h3{color:var(--navy)}
+.article-layout .article a,.related a{color:#086c91}
+.article-layout .article .context-box{background:#eef7fa;border-color:#dcebf1;border-radius:12px}
+.related{padding:25px!important;margin:20px auto 34px!important}
+.mag-participate{max-width:1220px;margin:25px auto 60px!important;background:linear-gradient(135deg,#d6f0f2,#eaf5fa)!important}
+.mag-participate a{background:#0d4670!important}
+.progress{z-index:110}
+@media(max-width:760px){.article-layout{margin-block:22px!important}.unified-article-banner{padding:30px 0}.article-layout .article{padding:20px}}
