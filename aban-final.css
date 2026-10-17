@@ -31,3 +31,210 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 @media(max-width:1080px){.nav-links{gap:9px}.nav-links a{font-size:12px}.aban-inner .site-footer .footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.nav-wrap{min-height:72px}.brand img{width:48px;height:48px}.brand strong{font-size:25px}.hero{min-height:450px;background:linear-gradient(270deg,#ffffffed,#ffffffa6),url('aban_hero.png') 45% center/cover no-repeat}.hero-content{min-height:450px}.hero h1{font-size:36px}.hero-copy{padding:35px 0}.section{padding:54px 0}.cards.three{grid-template-columns:1fr}.cards.four{grid-template-columns:1fr 1fr}.section-title.split{flex-wrap:wrap}.site-footer .footer-grid,.aban-inner .site-footer .footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.cards.four{grid-template-columns:1fr}.site-footer .footer-grid,.aban-inner .site-footer .footer-grid{grid-template-columns:1fr}.hero-choice{min-height:80px}}
+
+/* ========================================
+   ABAN HEADER - FINAL IMPROVEMENTS
+======================================== */
+
+@media (min-width: 1081px) {
+
+  .site-header .nav-wrap {
+    min-height: 105px;
+    gap: 24px;
+  }
+
+  /* لوگو و نوشته برند */
+  .site-header .brand {
+    gap: 13px;
+    flex-shrink: 0;
+  }
+
+  .site-header .brand img {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+  }
+
+  .site-header .brand strong {
+    font-size: 43px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .site-header .brand small {
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 3px;
+  }
+
+  /* گزینه‌های منو */
+  .site-header .nav-links {
+    gap: clamp(20px, 2vw, 34px);
+  }
+
+  .site-header .nav-links a {
+    font-size: 16px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  /* دکمه شروع همکاری */
+  .site-header .nav-action {
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 22px;
+    min-height: 53px;
+    border-radius: 14px;
+  }
+}
+
+/* ========================================
+   HERO DESCRIPTION IMPROVEMENT
+======================================== */
+
+/* کنترل عرض و جایگاه متن */
+.hero .hero-copy {
+  width: 100%;
+  max-width: 575px;
+}
+
+/* متن توضیحی زیر عنوان اصلی */
+.hero .hero-copy > p {
+  font-family: Nian, Tahoma, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 2.2;
+
+  color: #183e60;
+
+  max-width: 530px;
+  margin-top: 24px;
+  margin-bottom: 0;
+
+  text-align: right;
+  overflow-wrap: normal;
+}
+
+/* نمایش در مانیتورهای بزرگ */
+@media (min-width: 1400px) {
+  .hero .hero-copy > p {
+    max-width: 555px;
+    font-size: 20px;
+  }
+}
+
+/* نمایش در تبلت */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero .hero-copy > p {
+    max-width: 470px;
+    font-size: 17px;
+  }
+}
+
+/* نمایش موبایل */
+@media (max-width: 760px) {
+  .hero .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero .hero-copy > p {
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 2;
+  }
+}
+
+/* ========================================
+   HERO ACTION CARDS
+======================================== */
+
+.hero .hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.hero .hero-choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  flex: 1 1 220px;
+  min-width: 0;
+  min-height: 100px;
+
+  padding: 17px 19px;
+  border-radius: 17px;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.hero .hero-choice:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(10,45,87,.16);
+}
+
+.hero .choice-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.hero .choice-icon svg {
+  width: 42px;
+  height: 42px;
+  stroke: currentColor;
+}
+
+.hero .hero-choice strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.hero .hero-choice small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* دکمه ثبت مسئله */
+.hero .hero-choice.dark {
+  background: #103D69;
+  color: #ffffff;
+  border: 1px solid #103D69;
+}
+
+/* دکمه معرفی توانمندی */
+.hero .hero-choice.light {
+  background: rgba(255,255,255,.95);
+  color: #087D90;
+  border: 1.5px solid #078F9C;
+}
+
+/* نمایش موبایل */
+@media (max-width: 650px) {
+  .hero .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero .hero-choice {
+    width: 100%;
+    flex-basis: auto;
+    min-height: 86px;
+  }
+
+  .hero .hero-choice strong {
+    font-size: 16px;
+  }
+}
