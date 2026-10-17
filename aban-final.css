@@ -239,11 +239,10 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
   }
 }
 
-/* اصلاح زوم تصویر سربرگ */
-
+/* نمایش تمام تصویر Hero بدون بریدگی یا نوار سفید در پایین */
 .hero {
-    background-size: 100% auto !important;
-    background-position: center top !important;
+    background-size: 100% 100% !important;
+    background-position: center center !important;
     background-repeat: no-repeat !important;
 }
 
