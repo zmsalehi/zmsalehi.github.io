@@ -517,3 +517,20 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
     min-height: 0;
   }
 }
+
+/* اتصال بخش Hero به از کجا شروع کنم */
+
+.hero {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#audiences {
+    margin-top: 0 !important;
+    padding-top: 35px !important;
+}
+
+/* جلوگیری از ایجاد فاصله توسط بخش والد */
+.hero + #audiences {
+    margin-top: 0 !important;
+}
