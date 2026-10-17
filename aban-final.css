@@ -246,3 +246,99 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
     background-position: center top !important;
     background-repeat: no-repeat !important;
 }
+
+/* ========================================
+   HERO BUTTONS - COMPACT SIZE
+======================================== */
+
+@media (min-width: 761px) {
+
+  .hero .hero-actions {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 12px !important;
+    width: auto !important;
+    max-width: 520px !important;
+  }
+
+  .hero .hero-choice {
+    flex: 0 0 auto !important;
+    width: 240px !important;
+    min-width: 0 !important;
+    min-height: 84px !important;
+    padding: 12px 15px !important;
+    gap: 10px !important;
+  }
+
+  .hero .choice-icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .hero .choice-icon svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .hero .hero-choice strong {
+    font-size: 16px !important;
+  }
+
+  .hero .hero-choice small {
+    font-size: 11px !important;
+  }
+}
+
+/* ========================================
+   AUDIENCES - FULL WIDTH FIX
+======================================== */
+
+#audiences {
+  width: 100% !important;
+  max-width: none !important;
+  clear: both !important;
+  display: block !important;
+  position: relative !important;
+}
+
+#audiences > .container {
+  width: min(1240px, calc(100% - 48px)) !important;
+  max-width: 1240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* عنوان در مرکز صفحه */
+#audiences .section-head {
+  width: 100% !important;
+  max-width: none !important;
+  text-align: center !important;
+  margin-bottom: 30px !important;
+}
+
+/* دو کارت کنار یکدیگر */
+#audiences .audience-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+}
+
+#audiences .audience-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  padding: 28px !important;
+}
+
+/* موبایل */
+@media (max-width: 760px) {
+  #audiences > .container {
+    width: calc(100% - 28px) !important;
+  }
+
+  #audiences .audience-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
