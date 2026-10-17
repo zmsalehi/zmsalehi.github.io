@@ -107,7 +107,7 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 
   color: #183e60;
 
-  max-width: 530px;
+  max-width: 500px;
   margin-top: 24px;
   margin-bottom: 0;
 
@@ -142,5 +142,99 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
     font-size: 16px;
     font-weight: 700;
     line-height: 2;
+  }
+}
+
+/* ========================================
+   HERO ACTION CARDS
+======================================== */
+
+.hero .hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.hero .hero-choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  flex: 1 1 220px;
+  min-width: 0;
+  min-height: 100px;
+
+  padding: 17px 19px;
+  border-radius: 17px;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.hero .hero-choice:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(10,45,87,.16);
+}
+
+.hero .choice-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.hero .choice-icon svg {
+  width: 42px;
+  height: 42px;
+  stroke: currentColor;
+}
+
+.hero .hero-choice strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.hero .hero-choice small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* دکمه ثبت مسئله */
+.hero .hero-choice.dark {
+  background: #103D69;
+  color: #ffffff;
+  border: 1px solid #103D69;
+}
+
+/* دکمه معرفی توانمندی */
+.hero .hero-choice.light {
+  background: rgba(255,255,255,.95);
+  color: #087D90;
+  border: 1.5px solid #078F9C;
+}
+
+/* نمایش موبایل */
+@media (max-width: 650px) {
+  .hero .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero .hero-choice {
+    width: 100%;
+    flex-basis: auto;
+    min-height: 86px;
+  }
+
+  .hero .hero-choice strong {
+    font-size: 16px;
   }
 }
