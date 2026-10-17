@@ -107,7 +107,7 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 
   color: #183e60;
 
-  max-width: 530px;
+  max-width: 500px;
   margin-top: 24px;
   margin-bottom: 0;
 
@@ -245,4 +245,47 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
     background-size: 100% auto !important;
     background-position: center top !important;
     background-repeat: no-repeat !important;
+}
+
+/* ========================================
+   HERO BUTTONS - COMPACT SIZE
+======================================== */
+
+@media (min-width: 761px) {
+
+  .hero .hero-actions {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 12px !important;
+    width: auto !important;
+    max-width: 520px !important;
+  }
+
+  .hero .hero-choice {
+    flex: 0 0 auto !important;
+    width: 240px !important;
+    min-width: 0 !important;
+    min-height: 84px !important;
+    padding: 12px 15px !important;
+    gap: 10px !important;
+  }
+
+  .hero .choice-icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .hero .choice-icon svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .hero .hero-choice strong {
+    font-size: 16px !important;
+  }
+
+  .hero .hero-choice small {
+    font-size: 11px !important;
+  }
 }
