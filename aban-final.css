@@ -238,3 +238,11 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
     font-size: 16px;
   }
 }
+
+/* اصلاح زوم تصویر سربرگ */
+
+.hero {
+    background-size: 100% auto !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+}
