@@ -1,0 +1,7 @@
+/* ABAN opportunities — preview data until an approved Supabase schema is connected.
+   These examples are NOT real opportunities and must never accept applications. */
+window.ABAN_OPPORTUNITIES = [
+ {id:'demo-water',title:'پایش هوشمند شبکه توزیع آب',category:'آب و محیط‌زیست',summary:'طراحی راهکار پایش و تحلیل داده‌های شبکه توزیع برای شناسایی نقاط پرریسک.',description:'نمونه نمایشی: سازمان به دنبال بررسی روش‌های پایش داده‌های فشار، مصرف و نشتی شبکه است.',outcome:'نمونه نمایشی: داشبورد تحلیلی و فهرست نقاط پرریسک.',requirements:'نمونه نمایشی: توانمندی تحلیل داده و توسعه سامانه.',cooperation:'پروژه فناورانه',status:'demo',deadline:'',image:'assets/images/opportunities/water.jpg',created_at:'2026-10-18'},
+ {id:'demo-energy',title:'پایش مصرف انرژی در صنایع',category:'انرژی',summary:'تحلیل داده‌های مصرف انرژی برای شناسایی فرصت‌های بهینه‌سازی.',description:'نمونه نمایشی از فرصت حوزه انرژی.',outcome:'نمونه نمایشی: گزارش تحلیلی و ابزار پایش.',requirements:'نمونه نمایشی: تحلیل داده و اینترنت اشیا.',cooperation:'همکاری تحقیق و توسعه',status:'demo',deadline:'',image:'assets/images/opportunities/energy.jpg',created_at:'2026-10-17'},
+ {id:'demo-agri',title:'پایش هوشمند کشت گلخانه‌ای',category:'کشاورزی',summary:'استفاده از حسگرها و داده‌های محیطی برای تصمیم‌سازی در گلخانه.',description:'نمونه نمایشی از فرصت حوزه کشاورزی.',outcome:'نمونه نمایشی: سامانه پایش و هشدار.',requirements:'نمونه نمایشی: تجربه حسگر و نرم‌افزار.',cooperation:'اجرای پایلوت',status:'demo',deadline:'',image:'assets/images/opportunities/agriculture.jpg',created_at:'2026-10-16'}
+];
