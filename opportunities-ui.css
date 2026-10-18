@@ -115,104 +115,76 @@
 #opportunities .section-title {
   margin-bottom: 20px !important;
 }
-
-/* ======================================
-   SIDE CAROUSEL ARROWS
-====================================== */
+/* =========================
+   Home opportunities arrows
+========================= */
 
 #opportunities .opp-carousel {
   position: relative;
 }
 
-/* کنترل‌ها روی دو طرف کارت‌ها */
 #opportunityControls {
   position: absolute;
-  top: 50%;
-  left: -55px;
-  right: -55px;
-
-  transform: translateY(-50%);
-  margin: 0;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  inset: 0;
   pointer-events: none;
   z-index: 5;
 }
 
-/* فلش گرد */
+/* دکمه‌های مینیمال */
 #opportunityControls button {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  pointer-events: auto;
+  cursor: pointer;
+
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+
+  color: #103d69;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 0;
-  border-radius: 50%;
+  transition: transform .18s ease, color .18s ease, opacity .18s ease;
+  opacity: .88;
+}
 
-  background: #ffffff;
-  border: 1px solid #d2e5ee;
-  color: #103d69;
+/* دکمه سمت راست */
+#opportunityControls button:first-child {
+  right: -38px;
+}
 
-  box-shadow: 0 5px 18px rgba(10,45,87,.12);
-
-  font-size: 25px;
-  line-height: 1;
-
-  pointer-events: auto;
-  cursor: pointer;
-
-  transition: .2s ease;
+/* دکمه سمت چپ */
+#opportunityControls button:last-child {
+  left: -38px;
 }
 
 #opportunityControls button:hover {
-  background: #103d69;
-  color: white;
-  transform: scale(1.07);
+  color: #16a5b5;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.08);
 }
 
-/* شمارنده کوچک در زیر کارت‌ها */
+#opportunityControls button:focus-visible {
+  outline: none;
+  color: #16a5b5;
+  opacity: 1;
+}
+
+/* اگر شمارنده پایین را نمی‌خواهی */
 #opportunityControls .opp-counter {
-  position: absolute;
-  top: calc(50% + 255px);
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-size: 12px;
-  color: #6c8596;
-  white-space: nowrap;
-}
-
-/* تبلت */
-@media (max-width: 1350px) {
-  #opportunityControls {
-    left: -16px;
-    right: -16px;
-  }
-
-  #opportunityControls button {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-  }
-}
-
-/* موبایل */
-@media (max-width: 650px) {
-  #opportunityControls {
-    left: -8px;
-    right: -8px;
-  }
-
-  #opportunityControls button {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    font-size: 20px;
-  }
+  display: none;
 }
