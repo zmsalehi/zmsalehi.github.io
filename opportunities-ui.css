@@ -38,11 +38,8 @@
 #opportunities .section-title{margin-bottom:24px!important}
 #opportunities .section-title h2{font-size:clamp(29px,2.6vw,40px)!important;line-height:1.5!important}
 #homeOpportunities{overflow:visible!important;height:auto!important;max-height:none!important;align-items:stretch!important}
-#homeOpportunities .opp-card{height:100%;min-height:450px}
-#homeOpportunities .opp-card .opp-body{min-height:225px}
 #homeOpportunities .opp-card .opp-picture{aspect-ratio:16/9}
 .opp-card{min-width:0}
-.opp-body{min-height:205px}
 .opp-body h3{font-weight:800!important}
 .opp-body a,.opp-body button{margin-top:auto}
 .opportunities-page{padding-top:30px!important;padding-bottom:58px!important;min-height:0!important}
@@ -52,3 +49,69 @@
 .opp-field-label{color:#627f91;font-size:14px;font-weight:750;margin-top:20px}
 .opp-drawer .opp-tag{display:inline-block;align-self:auto}
 @media(max-width:650px){#opportunities{padding-top:30px!important}.opportunities-page{padding-top:22px!important}#homeOpportunities .opp-card{min-height:0}}
+
+/* ======================================
+   ABAN - COMPACT OPPORTUNITY CARDS
+====================================== */
+
+#homeOpportunities .opp-card {
+  height: 100%;
+  min-height: 0;
+}
+
+#homeOpportunities .opp-picture {
+  width: 100%;
+  aspect-ratio: 2.25 / 1;
+  object-fit: cover;
+}
+
+#homeOpportunities .opp-body {
+  min-height: 0;
+  padding: 16px 20px 17px;
+  gap: 8px;
+}
+
+/* عنوان */
+#homeOpportunities .opp-body h3 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* توضیح مختصر */
+#homeOpportunities .opp-body p {
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 0;
+  -webkit-line-clamp: 2;
+}
+
+/* برچسب حوزه */
+#homeOpportunities .opp-tag {
+  padding: 4px 11px;
+  font-size: 12px;
+}
+
+/* برچسب نمایشی */
+#homeOpportunities .opp-demo {
+  padding: 3px 10px;
+  font-size: 11px;
+}
+
+/* دکمه جزئیات */
+#homeOpportunities .opp-card a {
+  margin-top: auto;
+  padding: 8px 0 0;
+  font-size: 15px;
+}
+
+/* ارتفاع کمتر کل بخش فرصت‌ها */
+#opportunities {
+  padding-top: 32px !important;
+  padding-bottom: 38px !important;
+}
+
+#opportunities .section-title {
+  margin-bottom: 20px !important;
+}
