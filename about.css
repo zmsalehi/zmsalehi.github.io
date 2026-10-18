@@ -1,0 +1,295 @@
+@font-face {
+  font-family: "Nian";
+  src: url("font/NianRegular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nian";
+  src: url("font/NianBold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  margin: 0;
+  font-family: "Nian", Tahoma, sans-serif;
+  background: #f5f7f8;
+  color: #102c48;
+  line-height: 2;
+}
+
+.site-header {
+  background: #102c48;
+  color: #fff;
+  width: 100%;
+}
+
+.header-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.brand-caption {
+  font-size: 12px;
+  opacity: .75;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  opacity: .85;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #35c4bd;
+  opacity: 1;
+}
+
+.about-hero {
+  min-height: 440px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(245,247,248,.08) 0%,
+      rgba(245,247,248,.45) 42%,
+      rgba(245,247,248,.94) 72%,
+      #f5f7f8 100%
+    ),
+    url("aban-about-hero-high-res.png") center center / cover no-repeat;
+}
+
+.about-container {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.about-hero .about-container {
+  padding: 70px 0;
+}
+
+.section-label {
+  display: inline-block;
+  color: #168f91;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.about-hero h1 {
+  max-width: 650px;
+  margin: 0 0 18px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.5;
+  color: #102c48;
+}
+
+.about-lead {
+  max-width: 610px;
+  margin: 0;
+  font-size: 18px;
+  color: #40576b;
+}
+
+.about-content-section {
+  padding: 70px 0;
+  background: #f5f7f8;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-content > p {
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 2.2;
+  color: #30495e;
+}
+
+.about-highlight {
+  margin: 45px 0;
+  padding: 32px 36px;
+  background: #102c48;
+  border-radius: 18px;
+  color: #fff;
+  border-right: 5px solid #35c4bd;
+}
+
+.about-highlight h2 {
+  margin: 0 0 15px;
+  color: #35c4bd;
+  font-size: 28px;
+}
+
+.about-highlight p {
+  margin: 0 0 18px;
+  line-height: 2.1;
+}
+
+.about-highlight p:last-child {
+  margin-bottom: 0;
+}
+
+.about-highlight strong {
+  color: #fff;
+  font-size: 18px;
+}
+
+.about-final {
+  margin-top: 45px;
+  padding: 30px 34px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #dce5ea;
+  box-shadow: 0 10px 30px rgba(16,44,72,.06);
+}
+
+.about-final p {
+  margin: 0 0 12px;
+  color: #30495e;
+}
+
+.about-final p:last-child {
+  margin-bottom: 0;
+}
+
+.about-final strong {
+  color: #102c48;
+}
+
+.site-footer {
+  background: #102c48;
+  color: #fff;
+  padding: 35px 0;
+}
+
+.footer-inner {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.footer-brand span {
+  font-size: 14px;
+  opacity: .8;
+}
+
+.footer-foundation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-foundation img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+@media (max-width: 800px) {
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+  }
+
+  .about-hero {
+    min-height: 400px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(245,247,248,.72),
+        rgba(245,247,248,.94)
+      ),
+      url("aban-about-hero-high-res.png") center / cover no-repeat;
+  }
+
+  .about-hero h1 {
+    font-size: 30px;
+  }
+
+  .about-lead {
+    font-size: 16px;
+  }
+
+  .about-highlight {
+    padding: 25px 22px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
