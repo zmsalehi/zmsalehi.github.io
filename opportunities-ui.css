@@ -31,3 +31,24 @@
 .opp-share{font:inherit;padding:10px 15px;border:1px solid #bfd9e4;border-radius:12px;background:white;cursor:pointer}
 @media(max-width:1020px){#opportunities .opp-cards,.opp-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){#opportunities .opp-cards,.opp-list{grid-template-columns:1fr}.opp-drawer{padding:18px}.opp-drawer h2{font-size:23px}}
+
+/* October layout corrections: scoped to opportunities only */
+#opportunities{overflow:visible!important;height:auto!important;max-height:none!important;padding-top:40px!important;padding-bottom:48px!important}
+#opportunities>.wrap{overflow:visible!important}
+#opportunities .section-title{margin-bottom:24px!important}
+#opportunities .section-title h2{font-size:clamp(29px,2.6vw,40px)!important;line-height:1.5!important}
+#homeOpportunities{overflow:visible!important;height:auto!important;max-height:none!important;align-items:stretch!important}
+#homeOpportunities .opp-card{height:100%;min-height:450px}
+#homeOpportunities .opp-card .opp-body{min-height:225px}
+#homeOpportunities .opp-card .opp-picture{aspect-ratio:16/9}
+.opp-card{min-width:0}
+.opp-body{min-height:205px}
+.opp-body h3{font-weight:800!important}
+.opp-body a,.opp-body button{margin-top:auto}
+.opportunities-page{padding-top:30px!important;padding-bottom:58px!important;min-height:0!important}
+.opportunities-page .section-title{margin-top:0!important;margin-bottom:20px!important}
+.opportunities-page .section-title h1{font-size:clamp(29px,3vw,43px)!important;line-height:1.5!important}
+.opportunities-page .opp-toolbar{margin:16px 0 22px!important}
+.opp-field-label{color:#627f91;font-size:14px;font-weight:750;margin-top:20px}
+.opp-drawer .opp-tag{display:inline-block;align-self:auto}
+@media(max-width:650px){#opportunities{padding-top:30px!important}.opportunities-page{padding-top:22px!important}#homeOpportunities .opp-card{min-height:0}}
