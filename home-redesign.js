@@ -20,4 +20,4 @@ function loadOpportunities(){const root=$('homeOpportunities');root.replaceChild
  samples.forEach(s=>{const card=el('article','content-card');const img=el('img','card-image');img.src=s[3];img.alt='نمونه نمایشی: '+s[1];const body=el('div','card-body');body.append(el('span','chip','نمونه نمایشی · '+s[0]),el('h3','',s[1]),el('p','',s[2]),link('مشاهده فرصت‌ها ←','opportunities.html'));card.append(img,body);root.append(card)});}
 $('menuToggle').addEventListener('click',()=>{const nav=$('navLinks');const open=nav.classList.toggle('open');$('menuToggle').setAttribute('aria-expanded',String(open))});$('navLinks').addEventListener('click',e=>{if(e.target.closest('a')){$('navLinks').classList.remove('open');$('menuToggle').setAttribute('aria-expanded','false')}});
 $('companySearch').addEventListener('input',renderCompanies);$('companyFilters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;sector=b.dataset.sector;document.querySelectorAll('#companyFilters button').forEach(x=>x.classList.toggle('active',x===b));renderCompanies()});
-loadCompanies();loadMag();loadOpportunities();
+loadCompanies();loadMag();
