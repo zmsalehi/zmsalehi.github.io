@@ -494,14 +494,8 @@
 
   </div>
 
-</section>
-<section class="cta" id="join">
-<div>
-<h2>می‌خواهید شرکت شما در شبکه آبان معرفی شود؟</h2>
-<p>توانمندی، محصول، فناوری یا راهکار خود را ثبت کنید؛ انتشار پروفایل پس از بررسی و تأیید آبان انجام می‌شود.</p>
-</div>
-<a class="button" href="https://forms.gle/mDLAuRdTJF8zM4P5A" rel="noopener noreferrer" target="_blank">ثبت توانمندی</a>
-</section>
+
+
 </section>
 </main>
 <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand footer-logo" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><strong>آبان</strong></a><p>پیونددهنده نیازها و ظرفیت‌های نوآوری؛ برای شکل‌گیری همکاری‌های هدفمند و اثرگذار.</p></div><div><h3>دسترسی سریع</h3><a href="index.html#audiences">برای سازمان‌ها</a><a href="companies.html">شبکه شرکت‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#services">خدمات</a><a href="mag.html">مجله آبان</a></div><div><h3>ارتباط با آبان</h3><a href="problem.html">ثبت مسئله</a><a href="https://forms.gle/mDLAuRdTJF8zM4P5A" rel="noopener noreferrer" target="_blank">ثبت توانمندی</a><a href="index.html#about">درباره آبان</a></div><div><h3>سایر پیوندها</h3><a href="mag-submit.html">ارسال محتوا به مجله</a><a href="companies.html">جست‌وجوی شرکت‌ها</a><a href="index.html#contact">شروع همکاری</a></div></div><div class="footer-bottom"><span>تمامی حقوق این وب‌سایت متعلق به آبان است.</span><span>با هم، نوآوری را به عمل تبدیل می‌کنیم.</span></div></div></footer>
@@ -516,6 +510,11 @@
     const networkStatus = document.getElementById('networkStatus');
     let activeFilter = 'all';
     let companies = [];
+    const companyCount =
+  document.getElementById('companyCount');
+
+const sectorCount =
+  document.getElementById('sectorCount');
 
     function addText(parent, tag, className, value) {
       const el = document.createElement(tag);
@@ -810,7 +809,7 @@
     (async () => {
       try {
         const url = SUPABASE_URL.replace(/\/$/, '') +
-          '/rest/v1/aban_companies?select=slug,name,sector,short_description,tags&is_published=eq.true&order=created_at.desc&limit=1000';
+        '/rest/v1/aban_companies?select=slug,name,sector,short_description,tags,card_image_url&is_published=eq.true&order=created_at.desc&limit=1000';
         const response = await fetch(url, { headers: { apikey: SUPABASE_PUBLISHABLE_KEY } });
         if (!response.ok) throw new Error('خطای دریافت اطلاعات از شبکه آبان (' + response.status + ')');
         const data = await response.json();
