@@ -308,8 +308,10 @@
       .search { width: 100%; }
     }
   </style>
-<link href="aban-final.css" rel="stylesheet"/></head>
-    <link href="companies-page.css" rel="stylesheet"/>
+<link href="aban-final.css" rel="stylesheet"/>
+<link href="companies-page.css" rel="stylesheet"/>
+</head>
+
 <body class="aban-inner">
 <header class="site-header"><div class="wrap nav-wrap"><a aria-label="آبان، صفحه اصلی" class="brand" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><span><strong>آبان</strong><small>پلتفرم میانی نوآوری</small></span></a><button aria-controls="navLinks" aria-expanded="false" aria-label="نمایش منو" class="menu-toggle" id="menuToggle" type="button">☰</button><nav aria-label="منوی اصلی" class="nav-links" id="navLinks"><a href="index.html#home">خانه</a><a href="index.html#audiences">برای سازمان‌ها</a><a href="index.html#audiences">برای شرکت‌ها و تیم‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#companies">شبکه شرکت‌ها</a><a href="index.html#services">خدمات</a><a href="index.html#mag">مجله آبان</a><a href="index.html#about">درباره آبان</a></nav><a class="button primary nav-action" href="index.html#contact">شروع همکاری <span aria-hidden="true">←</span></a></div></header>
 <main>
@@ -523,28 +525,30 @@
       return el;
     }
 
-    function createCard(company) {
+ function createCard(company) {
 
   const name =
     String(company.name || 'شرکت بدون نام');
 
   const href =
     'company.html?slug=' +
-    encodeURIComponent(company.slug);
+    encodeURIComponent(company.slug || '');
 
 
-  /* کل کارت لینک است */
-
+  /* خود کارت لینک نیست */
   const card =
-    document.createElement('a');
+    document.createElement('article');
 
   card.className =
     'card company-network-card';
 
-  card.href = href;
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'link');
 
 
-  /* تصویر */
+  /* =========================
+     تصویر شرکت
+     ========================= */
 
   const media =
     document.createElement('div');
@@ -567,15 +571,25 @@
     image.loading =
       'lazy';
 
-    image.addEventListener(
-      'error',
-      () => {
-        image.remove();
-        media.classList.add(
-          'company-card-media-fallback'
-        );
-      }
-    );
+
+    image.addEventListener('error', () => {
+
+      image.remove();
+
+      media.classList.add(
+        'company-card-media-fallback'
+      );
+
+      const fallback =
+        document.createElement('span');
+
+      fallback.textContent =
+        name.slice(0, 1);
+
+      media.appendChild(fallback);
+
+    });
+
 
     media.appendChild(image);
 
@@ -595,7 +609,7 @@
   }
 
 
-  /* حوزه فعالیت روی عکس */
+  /* حوزه فعالیت روی تصویر */
 
   const sector =
     document.createElement('span');
@@ -604,13 +618,15 @@
     'company-card-sector';
 
   sector.textContent =
-    company.sector ||
-    'حوزه فعالیت';
+    company.sector || 'حوزه فعالیت';
 
   media.appendChild(sector);
 
 
-  /* بدنه */
+
+  /* =========================
+     محتوای کارت
+     ========================= */
 
   const body =
     document.createElement('div');
@@ -619,10 +635,10 @@
     'company-card-body';
 
 
-  const top =
+  const heading =
     document.createElement('div');
 
-  top.className =
+  heading.className =
     'company-card-heading';
 
 
@@ -643,7 +659,7 @@
     name;
 
 
-  top.append(
+  heading.append(
     logo,
     title
   );
@@ -657,8 +673,13 @@
 
   description.textContent =
     company.short_description ||
-    'برای آشنایی بیشتر با توانمندی‌ها و خدمات این مجموعه، پروفایل شرکت را مشاهده کنید.';
+    'برای آشنایی بیشتر با توانمندی‌های این مجموعه، پروفایل شرکت را مشاهده کنید.';
 
+
+
+  /* =========================
+     تگ‌ها
+     ========================= */
 
   const tagBox =
     document.createElement('div');
@@ -670,7 +691,7 @@
   String(company.tags || '')
     .replace(/،/g, ',')
     .split(',')
-    .map(x => x.trim())
+    .map(tag => tag.trim())
     .filter(Boolean)
     .slice(0, 3)
     .forEach(tag => {
@@ -691,21 +712,30 @@
     });
 
 
-  const more =
-    document.createElement('span');
 
-  more.className =
+  /* =========================
+     فقط این قسمت لینک واقعی است
+     ========================= */
+
+  const link =
+    document.createElement('a');
+
+  link.className =
     'card-link';
 
-  more.textContent =
+  link.href =
+    href;
+
+  link.textContent =
     'مشاهده پروفایل ←';
 
 
+
   body.append(
-    top,
+    heading,
     description,
     tagBox,
-    more
+    link
   );
 
 
@@ -713,6 +743,42 @@
     media,
     body
   );
+
+
+
+  /* =========================
+     کلیک روی خود کارت
+     ========================= */
+
+  card.addEventListener('click', event => {
+
+    if (event.target.closest('a')) {
+      return;
+    }
+
+    window.location.href =
+      href;
+
+  });
+
+
+  /* دسترسی با کیبورد */
+
+  card.addEventListener('keydown', event => {
+
+    if (
+      event.key === 'Enter' ||
+      event.key === ' '
+    ) {
+
+      event.preventDefault();
+
+      window.location.href =
+        href;
+
+    }
+
+  });
 
 
   return card;
@@ -760,3 +826,23 @@
   </script>
 <script src="shared-menu.js" defer></script></body>
 </html>
+
+.company-network-card {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.company-network-card h3,
+.company-network-card p,
+.company-network-card span {
+    text-decoration: none;
+}
+
+.company-network-card .card-link {
+    text-decoration: none;
+}
+
+.company-network-card .card-link:hover {
+    text-decoration: none;
+    color: #0799b8;
+}
