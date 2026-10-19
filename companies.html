@@ -524,22 +524,199 @@
     }
 
     function createCard(company) {
-      const card = document.createElement('article');
-      card.className = 'card';
-      const top = addText(card, 'div', 'card-top', '');
-      const name = String(company.name || 'شرکت بدون نام');
-      addText(top, 'div', 'logo', name.slice(0, 1));
-      const heading = addText(top, 'div', '', '');
-      addText(heading, 'h3', '', name);
-      addText(heading, 'div', 'domain', company.sector || 'حوزه فعالیت ثبت نشده');
-      addText(card, 'p', '', company.short_description || 'برای آشنایی بیشتر، پروفایل شرکت را مشاهده کنید.');
-      const tagBox = addText(card, 'div', 'tags', '');
-      String(company.tags || '').replace(/،/g, ',').split(',').map(x => x.trim()).filter(Boolean).slice(0, 6)
-        .forEach(tag => addText(tagBox, 'span', 'tag', tag));
-      const a = addText(card, 'a', 'card-link', 'مشاهده پروفایل شرکت ←');
-      a.href = 'company.html?slug=' + encodeURIComponent(company.slug);
-      return card;
-    }
+
+  const name =
+    String(company.name || 'شرکت بدون نام');
+
+  const href =
+    'company.html?slug=' +
+    encodeURIComponent(company.slug);
+
+
+  /* کل کارت لینک است */
+
+  const card =
+    document.createElement('a');
+
+  card.className =
+    'card company-network-card';
+
+  card.href = href;
+
+
+  /* تصویر */
+
+  const media =
+    document.createElement('div');
+
+  media.className =
+    'company-card-media';
+
+
+  if (company.card_image_url) {
+
+    const image =
+      document.createElement('img');
+
+    image.src =
+      company.card_image_url;
+
+    image.alt =
+      'تصویر ' + name;
+
+    image.loading =
+      'lazy';
+
+    image.addEventListener(
+      'error',
+      () => {
+        image.remove();
+        media.classList.add(
+          'company-card-media-fallback'
+        );
+      }
+    );
+
+    media.appendChild(image);
+
+  } else {
+
+    media.classList.add(
+      'company-card-media-fallback'
+    );
+
+    const fallback =
+      document.createElement('span');
+
+    fallback.textContent =
+      name.slice(0, 1);
+
+    media.appendChild(fallback);
+  }
+
+
+  /* حوزه فعالیت روی عکس */
+
+  const sector =
+    document.createElement('span');
+
+  sector.className =
+    'company-card-sector';
+
+  sector.textContent =
+    company.sector ||
+    'حوزه فعالیت';
+
+  media.appendChild(sector);
+
+
+  /* بدنه */
+
+  const body =
+    document.createElement('div');
+
+  body.className =
+    'company-card-body';
+
+
+  const top =
+    document.createElement('div');
+
+  top.className =
+    'company-card-heading';
+
+
+  const logo =
+    document.createElement('div');
+
+  logo.className =
+    'logo';
+
+  logo.textContent =
+    name.slice(0, 1);
+
+
+  const title =
+    document.createElement('h3');
+
+  title.textContent =
+    name;
+
+
+  top.append(
+    logo,
+    title
+  );
+
+
+  const description =
+    document.createElement('p');
+
+  description.className =
+    'company-card-description';
+
+  description.textContent =
+    company.short_description ||
+    'برای آشنایی بیشتر با توانمندی‌ها و خدمات این مجموعه، پروفایل شرکت را مشاهده کنید.';
+
+
+  const tagBox =
+    document.createElement('div');
+
+  tagBox.className =
+    'tags';
+
+
+  String(company.tags || '')
+    .replace(/،/g, ',')
+    .split(',')
+    .map(x => x.trim())
+    .filter(Boolean)
+    .slice(0, 3)
+    .forEach(tag => {
+
+      const tagElement =
+        document.createElement('span');
+
+      tagElement.className =
+        'tag';
+
+      tagElement.textContent =
+        tag;
+
+      tagBox.appendChild(
+        tagElement
+      );
+
+    });
+
+
+  const more =
+    document.createElement('span');
+
+  more.className =
+    'card-link';
+
+  more.textContent =
+    'مشاهده پروفایل ←';
+
+
+  body.append(
+    top,
+    description,
+    tagBox,
+    more
+  );
+
+
+  card.append(
+    media,
+    body
+  );
+
+
+  return card;
+}
 
     function render() {
       const term = searchInput.value.trim().toLocaleLowerCase('fa');
