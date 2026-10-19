@@ -796,6 +796,18 @@ const sectorCount =
       emptyMessage.style.display = shown.length ? 'none' : 'block';
       emptyMessage.textContent = companies.length ? 'شرکتی با این جست‌وجو یا حوزه پیدا نشد.' : 'هنوز شرکت تأیید و منتشرشده‌ای در شبکه آبان وجود ندارد.';
       networkStatus.textContent = shown.length + ' شرکت یا تیم نمایش داده می‌شود.';
+        companyCount.textContent =
+  companies.length.toLocaleString('fa-IR');
+
+const sectors =
+  new Set(
+    companies
+      .map(company => String(company.sector || '').trim())
+      .filter(Boolean)
+  );
+
+sectorCount.textContent =
+  sectors.size.toLocaleString('fa-IR');
     }
 
     searchInput.addEventListener('input', render);
