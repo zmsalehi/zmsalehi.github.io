@@ -1,1 +1,420 @@
 @font-face{font-family:Nian;src:url("font/NianRegular.ttf") format("truetype");font-display:swap}@font-face{font-family:Nian;src:url("font/NianBold.ttf") format("truetype");font-weight:700;font-display:swap}:root{--navy:#102c48;--navy2:#173e65;--teal:#078b93;--ink:#132944;--muted:#65788e;--line:#dfe9f0;--pale:#f0f7fb;--shadow:0 12px 36px rgba(20,53,82,.08)}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:white;color:var(--ink);font-family:Nian,Tahoma,sans-serif;line-height:1.8}a{text-decoration:none;color:inherit}button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1220px,92%);margin-inline:auto}.skip{position:absolute;right:5px;top:-80px;background:white;padding:10px;z-index:99}.skip:focus{top:10px}.site-header{background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid #e8eff4;box-shadow:0 3px 12px #1232}.nav-wrap{display:flex;gap:22px;align-items:center;justify-content:space-between;min-height:79px}.brand{display:flex;align-items:center;gap:9px;white-space:nowrap}.brand img{width:54px;height:54px;object-fit:contain}.brand strong{font-size:28px;color:var(--navy);line-height:1}.brand small{display:block;font-size:10px;color:var(--muted)}.nav-links{display:flex;align-items:center;gap:19px}.nav-links a{font-size:13px;font-weight:700;white-space:nowrap}.nav-links a:hover,.text-link,.content-card a,.service-card a{color:#086c91}.menu-toggle{display:none;background:none;border:0;font-size:28px;color:var(--navy)}.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 19px;border-radius:8px;font-weight:700;font-size:13px;white-space:nowrap;transition:.2s}.button:hover,.hero-choice:hover{transform:translateY(-2px)}.button.primary{background:#0d4670;color:white}.button.teal{background:var(--teal);color:white}.button.outline{border:1px solid #4384ad;color:#175b84;background:white}.hero{background:linear-gradient(270deg,rgba(255,255,255,.98) 2%,rgba(255,255,255,.88) 43%,rgba(255,255,255,.03) 77%),url('aban_hero.png') center center/cover no-repeat;min-height:468px;display:flex;align-items:center}.hero-content{display:flex;align-items:center;min-height:468px}.hero-copy{max-width:610px;padding:58px 0 56px}.kicker{font-size:13px;font-weight:700;color:#087d90}.hero h1{font-size:clamp(32px,4vw,57px);line-height:1.42;margin:15px 0;color:var(--navy);letter-spacing:-1px}.hero h1 em{font-style:normal;color:var(--teal)}.hero p{font-size:17px;max-width:550px;line-height:2;color:#344d63}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:23px}.hero-choice{min-width:218px;display:flex;align-items:center;gap:12px;border:1px solid #247a99;padding:13px 19px;border-radius:9px;transition:.2s}.hero-choice.dark{background:#103e68;color:#fff}.hero-choice.light{background:#fffffff0;color:#116b80}.hero-choice strong,.hero-choice small{display:block}.hero-choice strong{font-size:16px}.hero-choice small{font-size:11px;font-weight:400}.choice-icon{font-size:29px;line-height:1}.section{padding:65px 0}.tinted{background:var(--pale)}.section-title{margin-bottom:28px}.section-title h2{font-size:clamp(22px,2.4vw,32px);line-height:1.5;margin:0 0 4px}.section-title p{color:var(--muted);margin:0;font-size:14px}.section-title.center{text-align:center}.section-title.split{display:flex;align-items:center;justify-content:space-between;gap:14px}.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.audience-card{min-height:208px;border:1px solid var(--line);background:white;display:flex;gap:20px;align-items:center;padding:26px;border-radius:12px;box-shadow:var(--shadow)}.aud-icon{display:grid;place-items:center;flex-shrink:0;font-size:44px;color:#0b89a0;background:#e8f4f9;width:94px;height:94px;border-radius:14px}.audience-card h3{margin:0 0 4px;font-size:19px}.audience-card p{font-size:13px;color:var(--muted);margin:0 0 9px}.text-link{font-size:13px;font-weight:700}.cards{display:grid;gap:17px}.cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}.cards.four{grid-template-columns:repeat(4,minmax(0,1fr))}.content-card{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0;box-shadow:0 6px 22px #15374f09}.card-image{height:160px;background:linear-gradient(135deg,#d8ebf2,#e8f5f2);object-fit:cover;width:100%;display:block}.card-body{padding:16px}.chip{font-size:11px;background:#e9f1f5;border-radius:15px;padding:3px 9px;display:inline-block;color:#517089}.content-card h3{font-size:17px;line-height:1.6;margin:9px 0}.content-card p{font-size:13px;color:var(--muted);margin:7px 0 16px;min-height:46px}.content-card a:not(.image-link){font-size:13px;font-weight:700}.placeholder{padding:33px 20px;text-align:center;color:#647b8f;border:1px dashed #b5cbd9;border-radius:12px;grid-column:1/-1;background:#fff}.directory-tools{display:flex;gap:18px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:20px}.search-holder{border:1px solid #dce6ed;border-radius:8px;background:white;display:flex;align-items:center;padding:0 12px;min-width:280px;max-width:420px;flex:1}.search-holder span{font-size:24px;color:#597083}.search-holder input{border:none;outline:none;padding:12px 6px;width:100%;background:transparent;font-size:13px}.filters{display:flex;gap:6px;flex-wrap:wrap}.filters button{border:1px solid #d5e2ea;border-radius:20px;background:white;font-size:12px;padding:6px 12px;color:#425c70}.filters button.active{background:var(--teal);color:white;border-color:var(--teal)}.company-card .card-logo{display:grid;place-items:center;width:63px;height:63px;border-radius:12px;background:#e8f6f4;color:#078a94;font-size:30px;flex-shrink:0}.company-card .heading{display:flex;gap:12px;align-items:center}.company-card .heading h3{margin:0}.company-card .tags{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.steps article{text-align:center;position:relative;padding:7px 10px}.steps article:not(:last-child):after{content:'←';position:absolute;left:-15px;top:23px;color:#6a8499;font-size:22px}.step-icon{width:75px;height:75px;background:#e4f2fa;color:#237bac;display:grid;place-items:center;border-radius:50%;font-size:38px;margin:auto}.steps h3{font-size:17px;margin:12px 0 3px}.steps p{font-size:13px;color:var(--muted);margin:0}.service-card{text-align:center;padding:22px 15px;border-radius:12px;border:1px solid #d3e4f4;min-height:217px}.service-card.blue{background:#e8f4ff}.service-card.green{background:#e8f8f3;border-color:#cfede1}.service-card.gold{background:#fff6e4;border-color:#f1e5ca}.service-card.lilac{background:#f6effe;border-color:#ead9f7}.service-icon{font-size:45px;color:var(--teal);height:60px}.service-card h3{font-size:16px;margin:4px 0}.service-card p{font-size:13px;color:#536779;margin:4px 0 12px}.service-card a{font-weight:700;font-size:13px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}.benefits article{padding:10px}.benefits span{font-size:45px;color:#088a95}.benefits h3{font-size:18px;margin:0}.benefits p{font-size:14px;color:var(--muted);max-width:300px;margin:7px auto}.magazine .card-image{height:155px}.cta-section{padding:28px 0 0;background:var(--pale)}.cta-box{border-radius:14px 14px 0 0;background:linear-gradient(110deg,#c6ecf1,#e7f8fa 55%,#d1e8f4);text-align:center;padding:35px 22px}.cta-box h2{margin:0;font-size:27px}.cta-box p{max-width:730px;margin:5px auto 20px;color:#4e6678;font-size:14px}.cta-actions{display:flex;gap:12px;justify-content:center}.site-footer{background:#0d2843;color:#f4f9fc;padding:43px 0 15px}.footer-grid{display:grid;grid-template-columns:1.8fr repeat(3,1fr);gap:30px}.site-footer h3{font-size:15px;margin:0 0 14px}.site-footer a:not(.brand){display:block;color:#d7e2ee;font-size:13px;margin-bottom:8px}.footer-brand .brand{width:max-content}.footer-brand .brand strong{color:white}.footer-brand img{width:62px;height:62px}.footer-brand p{max-width:290px;font-size:13px;color:#c9d9e4}.footer-bottom{border-top:1px solid #ffffff2e;padding-top:16px;margin-top:30px;display:flex;justify-content:space-between;gap:15px;color:#aabfce;font-size:12px}.slider-controls{display:flex;justify-content:center;gap:8px;margin-top:14px}.slider-controls button{background:#edf5fa;border:1px solid #d6e4ec;border-radius:50%;width:36px;height:36px}.slider-controls[hidden]{display:none}@media(max-width:1080px){.nav-wrap{gap:10px}.nav-links{gap:10px}.nav-links a{font-size:11px}.nav-action{font-size:11px;padding:8px}.cards.four{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.nav-wrap{min-height:67px}.brand img{width:42px;height:42px}.brand strong{font-size:22px}.menu-toggle{display:block;margin-right:auto}.nav-action{min-height:36px}.nav-links{display:none;position:absolute;top:67px;left:0;right:0;background:white;box-shadow:var(--shadow);padding:19px 6%;flex-direction:column;align-items:stretch;gap:13px}.nav-links.open{display:flex}.nav-links a{font-size:15px}.hero{background:linear-gradient(270deg,#ffffffec,#ffffffa8),url('aban_hero.png') 40% center/cover no-repeat;min-height:430px}.hero-content{min-height:430px}.hero-copy{padding:34px 0}.hero h1{font-size:34px}.hero p{font-size:14px}.hero-choice{min-width:0;flex:1}.hero-choice strong{font-size:13px}.hero-choice small{font-size:10px}.section{padding:44px 0}.section-title.split{align-items:flex-start}.section-title.split .button{font-size:11px;padding:7px 10px}.audience-grid,.cards.three,.benefits{grid-template-columns:1fr}.audience-card{padding:18px;min-height:0}.aud-icon{width:68px;height:68px;font-size:29px}.cards.four{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr);row-gap:25px}.steps article:after{display:none}.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-bottom{flex-direction:column}.directory-tools{display:block}.search-holder{max-width:none;margin-bottom:12px}.filters{margin-top:9px}.card-image{height:210px}}@media(max-width:410px){.hero-actions{display:block}.hero-choice{margin-bottom:10px}.cards.four{grid-template-columns:1fr}.footer-grid{gap:22px}.audience-card{align-items:flex-start}.cta-actions{flex-wrap:wrap}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* =========================================================
+   HOME — COMPANY NETWORK
+   فقط بخش شبکه شرکت‌ها در صفحه اصلی
+   ========================================================= */
+
+#companies.company-network-home {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 92% 10%,
+      rgba(69, 198, 208, 0.13),
+      transparent 310px
+    ),
+    radial-gradient(
+      circle at 7% 84%,
+      rgba(209, 170, 104, 0.09),
+      transparent 280px
+    ),
+    linear-gradient(
+      180deg,
+      #eef8fc 0%,
+      #f6fbfd 100%
+    );
+
+  border-top:
+    1px solid rgba(16, 44, 72, 0.05);
+
+  border-bottom:
+    1px solid rgba(16, 44, 72, 0.06);
+}
+
+
+/* تفاوت بصری با فرصت‌ها */
+#companies .company-network-kicker {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  color: #078b93;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* ابزار جست‌وجو و فیلتر */
+#companies .company-network-tools {
+  margin-bottom: 25px;
+}
+
+
+#companies .search-holder {
+  border-radius: 12px;
+
+  box-shadow:
+    0 7px 20px rgba(16, 44, 72, 0.05);
+}
+
+
+#companies .filters button {
+  padding: 7px 13px;
+
+  background: rgba(255,255,255,0.86);
+
+  border-color:
+    rgba(16,44,72,0.11);
+}
+
+
+#companies .filters button.active {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0d4670,
+      #078b93
+    );
+
+  color: white;
+
+  border-color: transparent;
+
+  box-shadow:
+    0 7px 18px rgba(7,139,147,0.18);
+}
+
+
+/* شبکه کارت‌ها */
+#companies .company-showcase-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* کارت */
+#companies .company-showcase-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: inherit;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dce8ef;
+
+  border-radius:
+    15px;
+
+  box-shadow:
+    0 8px 26px
+    rgba(16, 44, 72, 0.07);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+
+#companies .company-showcase-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(7, 139, 147, 0.28);
+
+  box-shadow:
+    0 17px 38px
+    rgba(16, 44, 72, 0.13);
+}
+
+
+/* تصویر مستطیلی شرکت / محصول */
+#companies .company-showcase-media {
+
+  position: relative;
+
+  overflow: hidden;
+
+  aspect-ratio:
+    16 / 8.8;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d8ebf2,
+      #eaf6f6
+    );
+}
+
+
+#companies .company-showcase-image {
+
+  width: 100% !important;
+
+  height: 100% !important;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+#companies
+.company-showcase-card:hover
+.company-showcase-image {
+
+  transform:
+    scale(1.035);
+}
+
+
+/* حوزه فعالیت روی تصویر */
+#companies .company-sector-badge {
+
+  position: absolute;
+
+  top: 11px;
+  right: 11px;
+
+  padding:
+    4px 10px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,0.91);
+
+  color:
+    #0d607c;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  box-shadow:
+    0 4px 15px
+    rgba(16,44,72,0.09);
+
+  backdrop-filter:
+    blur(7px);
+}
+
+
+/* بدنه کارت */
+#companies .company-showcase-body {
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  padding:
+    15px 16px 14px;
+}
+
+
+/* نام شرکت و نشانه */
+#companies .company-showcase-title-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+#companies .company-mini-logo {
+
+  width: 39px;
+
+  height: 39px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius:
+    11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e7f7f6,
+      #eef4fa
+    );
+
+  color:
+    #078b93;
+
+  font-size:
+    19px;
+
+  font-weight:
+    800;
+}
+
+
+#companies
+.company-showcase-title-row h3 {
+
+  margin: 0;
+
+  font-size:
+    16px;
+
+  line-height:
+    1.55;
+
+  color:
+    #102c48;
+}
+
+
+/* فقط دو خط توضیح */
+#companies .company-showcase-summary {
+
+  margin:
+    10px 0 9px;
+
+  color:
+    #65788e;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.85;
+
+  display:
+    -webkit-box;
+
+  -webkit-line-clamp:
+    2;
+
+  -webkit-box-orient:
+    vertical;
+
+  overflow:
+    hidden;
+
+  min-height:
+    calc(1.85em * 2);
+
+  max-height:
+    calc(1.85em * 2);
+}
+
+
+/* حداکثر دو برچسب */
+#companies .company-showcase-tags {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-bottom:
+    12px;
+}
+
+
+#companies .company-showcase-tag {
+
+  display: inline-block;
+
+  padding:
+    3px 9px;
+
+  border-radius:
+    999px;
+
+  background:
+    #eaf3f8;
+
+  color:
+    #496c82;
+
+  font-size:
+    10px;
+}
+
+
+/* لینک ظاهری پایین کارت */
+#companies .company-showcase-link {
+
+  margin-top: auto;
+
+  padding-top:
+    5px;
+
+  color:
+    #086c91;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+}
+
+
+/* تبلت */
+@media (max-width: 1080px) {
+
+  #companies .company-showcase-grid {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+  }
+
+}
+
+
+/* موبایل */
+@media (max-width: 760px) {
+
+  #companies .company-showcase-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  #companies .company-showcase-media {
+
+    aspect-ratio:
+      16 / 8;
+
+  }
+
+}
