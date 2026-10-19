@@ -1,34 +1,3 @@
 assets/network/hero-image-1.jpg
 assets/network/hero-image-2.jpg
 assets/network/hero-image-3.jpg
-
-
-/* حذف خط زیر متن‌های کارت شرکت */
-
-.company-network-card,
-.company-network-card:hover,
-.company-network-card:focus,
-.company-network-card:active,
-.company-network-card:visited {
-    text-decoration: none !important;
-    color: inherit !important;
-}
-
-.company-network-card *,
-.company-network-card:hover *,
-.company-network-card:focus *,
-.company-network-card:active *,
-.company-network-card:visited * {
-    text-decoration: none !important;
-}
-
-
-/* فقط لینک نمایشی پایین کارت */
-.company-network-card .card-link {
-    color: #076b92 !important;
-    text-decoration: none !important;
-}
-
-.company-network-card:hover .card-link {
-    color: #0799b8 !important;
-}
