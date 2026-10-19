@@ -524,7 +524,7 @@ const sectorCount =
       return el;
     }
 
- function createCard(company) {
+function createCard(company) {
 
   const name =
     String(company.name || 'شرکت بدون نام');
@@ -534,7 +534,6 @@ const sectorCount =
     encodeURIComponent(company.slug || '');
 
 
-  /* خود کارت لینک نیست */
   const card =
     document.createElement('article');
 
@@ -570,7 +569,6 @@ const sectorCount =
     image.loading =
       'lazy';
 
-
     image.addEventListener('error', () => {
 
       image.remove();
@@ -579,16 +577,7 @@ const sectorCount =
         'company-card-media-fallback'
       );
 
-      const fallback =
-        document.createElement('span');
-
-      fallback.textContent =
-        name.slice(0, 1);
-
-      media.appendChild(fallback);
-
     });
-
 
     media.appendChild(image);
 
@@ -597,14 +586,6 @@ const sectorCount =
     media.classList.add(
       'company-card-media-fallback'
     );
-
-    const fallback =
-      document.createElement('span');
-
-    fallback.textContent =
-      name.slice(0, 1);
-
-    media.appendChild(fallback);
   }
 
 
@@ -624,7 +605,7 @@ const sectorCount =
 
 
   /* =========================
-     محتوای کارت
+     بدنه کارت
      ========================= */
 
   const body =
@@ -641,27 +622,13 @@ const sectorCount =
     'company-card-heading';
 
 
-  const logo =
-    document.createElement('div');
-
-  logo.className =
-    'logo';
-
-  logo.textContent =
-    name.slice(0, 1);
-
-
   const title =
     document.createElement('h3');
 
   title.textContent =
     name;
 
-
-  heading.append(
-    logo,
-    title
-  );
+  heading.appendChild(title);
 
 
   const description =
@@ -713,7 +680,7 @@ const sectorCount =
 
 
   /* =========================
-     فقط این قسمت لینک واقعی است
+     لینک پروفایل
      ========================= */
 
   const link =
@@ -746,7 +713,7 @@ const sectorCount =
 
 
   /* =========================
-     کلیک روی خود کارت
+     کلیک روی کل کارت
      ========================= */
 
   card.addEventListener('click', event => {
@@ -755,13 +722,10 @@ const sectorCount =
       return;
     }
 
-    window.location.href =
-      href;
+    window.location.href = href;
 
   });
 
-
-  /* دسترسی با کیبورد */
 
   card.addEventListener('keydown', event => {
 
@@ -769,12 +733,8 @@ const sectorCount =
       event.key === 'Enter' ||
       event.key === ' '
     ) {
-
       event.preventDefault();
-
-      window.location.href =
-        href;
-
+      window.location.href = href;
     }
 
   });
@@ -782,7 +742,6 @@ const sectorCount =
 
   return card;
 }
-
     function render() {
       const term = searchInput.value.trim().toLocaleLowerCase('fa');
       const shown = companies.filter(company => {
@@ -856,4 +815,194 @@ sectorCount.textContent =
 .company-network-card .card-link:hover {
     text-decoration: none;
     color: #0799b8;
+}
+
+
+/* =========================================================
+   FIX — کارت‌های شرکت‌ها
+   این بخش را آخر companies-page.css بگذار
+   ========================================================= */
+
+/* گرید */
+.network-directory .grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+}
+
+
+/* خود کارت */
+.company-network-card {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+
+    background: #fff !important;
+    border: 1px solid #dbe7ee !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 26px rgba(2,32,70,.065) !important;
+
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+
+/* هیچ متن داخل کارت خط نداشته باشد */
+.company-network-card,
+.company-network-card *,
+.company-network-card h3,
+.company-network-card p,
+.company-network-card span,
+.company-network-card a {
+    text-decoration: none !important;
+}
+
+
+/* بخش تصویر */
+.company-card-media {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, #dceef5, #eef8fb) !important;
+    flex: 0 0 auto !important;
+}
+
+
+/* خود عکس */
+.company-card-media img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border: 0 !important;
+}
+
+
+/* اگر عکس نبود */
+.company-card-media-fallback {
+    background: linear-gradient(135deg, #e5f2f7, #f2f8fb) !important;
+}
+
+
+/* حوزه فعالیت روی عکس */
+.company-card-sector {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+
+    padding: 4px 10px !important;
+
+    background: rgba(255,255,255,.92) !important;
+    color: #07507a !important;
+
+    border-radius: 999px !important;
+    box-shadow: 0 5px 16px rgba(2,32,70,.08) !important;
+
+    font-size: 10px !important;
+    font-weight: 700 !important;
+}
+
+
+/* بدنه کارت */
+.company-card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+
+    padding: 14px 15px 16px !important;
+}
+
+
+/* عنوان */
+.company-card-heading {
+    display: block !important;
+    margin-bottom: 8px !important;
+}
+
+.company-card-heading h3 {
+    margin: 0 !important;
+    color: #022046 !important;
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+}
+
+
+/* فقط دو خط توضیح */
+.company-card-description {
+    margin: 0 0 10px !important;
+
+    color: #687b8b !important;
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+
+    min-height: calc(1.8em * 2) !important;
+    max-height: calc(1.8em * 2) !important;
+}
+
+
+/* تگ‌ها */
+.company-card-body .tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+}
+
+.company-card-body .tag {
+    padding: 3px 8px !important;
+    border-radius: 999px !important;
+
+    background: #eaf3f8 !important;
+    color: #4c7085 !important;
+
+    font-size: 10px !important;
+}
+
+
+/* لینک پایین کارت */
+.company-card-body .card-link {
+    margin-top: auto !important;
+
+    color: #076b92 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+
+    text-decoration: none !important;
+}
+
+.company-network-card:hover .card-link {
+    color: #0799b8 !important;
+}
+
+
+/* واکنش‌گرا */
+@media (max-width: 1100px) {
+    .network-directory .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .network-directory .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .network-directory .grid {
+        grid-template-columns: 1fr !important;
+    }
 }
