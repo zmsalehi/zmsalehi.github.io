@@ -309,43 +309,190 @@
     }
   </style>
 <link href="aban-final.css" rel="stylesheet"/></head>
+    <link href="companies-page.css" rel="stylesheet"/>
 <body class="aban-inner">
 <header class="site-header"><div class="wrap nav-wrap"><a aria-label="آبان، صفحه اصلی" class="brand" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><span><strong>آبان</strong><small>پلتفرم میانی نوآوری</small></span></a><button aria-controls="navLinks" aria-expanded="false" aria-label="نمایش منو" class="menu-toggle" id="menuToggle" type="button">☰</button><nav aria-label="منوی اصلی" class="nav-links" id="navLinks"><a href="index.html#home">خانه</a><a href="index.html#audiences">برای سازمان‌ها</a><a href="index.html#audiences">برای شرکت‌ها و تیم‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#companies">شبکه شرکت‌ها</a><a href="index.html#services">خدمات</a><a href="index.html#mag">مجله آبان</a><a href="index.html#about">درباره آبان</a></nav><a class="button primary nav-action" href="index.html#contact">شروع همکاری <span aria-hidden="true">←</span></a></div></header>
 <main>
-<section class="hero">
-<div class="container">
-<span class="eyebrow">شبکه آبان</span>
-<h1>شبکه شرکت‌ها و تیم‌های نوآور</h1>
-<p>
-          با شرکت‌ها و تیم‌هایی آشنا شوید که برای مسائل واقعی،
-          محصول، فناوری، تخصص یا راهکار ارائه می‌کنند.
-          آبان زمینه آشنایی و شکل‌گیری همکاری میان ارائه‌دهندگان
-          راهکار و سازمان‌های متقاضی را فراهم می‌کند.
-        </p>
-</div>
+<section class="network-hero">
+
+  <div class="container network-hero-inner">
+
+    <div class="network-hero-copy">
+
+      <span class="network-kicker">
+        شبکه نوآوری آبان
+      </span>
+
+      <h1>
+        شبکه شرکت‌ها و تیم‌های نوآور
+      </h1>
+
+      <p>
+        مجموعه‌ای از شرکت‌ها و تیم‌های فناور با توانمندی‌ها،
+        محصولات و راهکارهای متنوع که می‌توانند زمینه شکل‌گیری
+        همکاری‌های جدید را فراهم کنند.
+      </p>
+
+      <div class="network-stats">
+
+        <div class="network-stat">
+          <strong id="companyCount">—</strong>
+          <span>شرکت و تیم منتشرشده</span>
+        </div>
+
+        <div class="network-stat">
+          <strong id="sectorCount">—</strong>
+          <span>حوزه فعالیت</span>
+        </div>
+
+        <div class="network-stat network-stat-text">
+          <strong>شبکه در حال رشد</strong>
+          <span>ظرفیت‌های جدید به‌مرور اضافه می‌شوند</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="network-hero-gallery" aria-hidden="true">
+
+      <div class="network-hero-image hero-image-1"></div>
+
+      <div class="network-hero-image hero-image-2"></div>
+
+      <div class="network-hero-image hero-image-3"></div>
+
+    </div>
+
+  </div>
+
 </section>
-<section class="container" id="companies">
-<div class="toolbar">
-<h2>شرکت‌ها و تیم‌های حاضر در شبکه</h2>
-<input aria-label="جست‌وجوی شرکت‌ها" class="search" id="searchInput" placeholder="جست‌وجوی نام، حوزه یا توانمندی..." type="search"/>
-</div>
-<div class="filters">
-<button class="filter active" data-filter="all">همه حوزه‌ها</button>
-<button class="filter" data-filter="کشاورزی">کشاورزی</button>
-<button class="filter" data-filter="آب و محیط‌زیست">آب و محیط‌زیست</button>
-<button class="filter" data-filter="انرژی">انرژی</button>
-<button class="filter" data-filter="صنعت">صنعت</button>
-<button class="filter" data-filter="هوش مصنوعی و داده">هوش مصنوعی و داده</button>
-<button class="filter" data-filter="زیست‌فناوری">زیست‌فناوری</button>
-<button class="filter" data-filter="سلامت">سلامت</button>
-<button class="filter" data-filter="حمل‌ونقل و لجستیک">حمل‌ونقل و لجستیک</button>
-<button class="filter" data-filter="آموزش">آموزش</button>
-<button class="filter" data-filter="ساختمان و عمران">ساختمان و عمران</button>
-</div>
-<p aria-live="polite" class="network-status" id="networkStatus" role="status">در حال دریافت اطلاعات شرکت‌ها...</p>
-<div class="grid" id="companyGrid">
-<div class="empty" id="emptyMessage">موردی با این عبارت یا حوزه پیدا نشد.</div>
-</div>
+<section class="network-directory" id="companies">
+
+  <div class="container">
+
+    <div class="network-directory-heading">
+
+      <div>
+        <span class="network-kicker">جست‌وجو در شبکه</span>
+
+        <h2>
+          شرکت‌ها و تیم‌های حاضر در شبکه
+        </h2>
+      </div>
+
+    </div>
+
+
+    <div class="network-search">
+
+      <span aria-hidden="true">⌕</span>
+
+      <input
+        aria-label="جست‌وجوی شرکت‌ها"
+        class="search"
+        id="searchInput"
+        placeholder="جست‌وجوی نام شرکت، محصول، تخصص یا حوزه فعالیت..."
+        type="search"
+      />
+
+    </div>
+
+
+    <div class="filters">
+
+      <button class="filter active" data-filter="all">
+        همه حوزه‌ها
+      </button>
+
+      <button class="filter" data-filter="کشاورزی">
+        کشاورزی
+      </button>
+
+      <button class="filter" data-filter="آب و محیط‌زیست">
+        آب و محیط‌زیست
+      </button>
+
+      <button class="filter" data-filter="انرژی">
+        انرژی
+      </button>
+
+      <button class="filter" data-filter="صنعت">
+        صنعت
+      </button>
+
+      <button class="filter" data-filter="هوش مصنوعی و داده">
+        هوش مصنوعی و داده
+      </button>
+
+      <button class="filter" data-filter="زیست‌فناوری">
+        زیست‌فناوری
+      </button>
+
+      <button class="filter" data-filter="سلامت">
+        سلامت
+      </button>
+
+      <button class="filter" data-filter="حمل‌ونقل و لجستیک">
+        حمل‌ونقل و لجستیک
+      </button>
+
+      <button class="filter" data-filter="آموزش">
+        آموزش
+      </button>
+
+      <button class="filter" data-filter="ساختمان و عمران">
+        ساختمان و عمران
+      </button>
+
+    </div>
+
+
+    <p
+      aria-live="polite"
+      class="network-status"
+      id="networkStatus"
+      role="status">
+      در حال دریافت اطلاعات شرکت‌ها...
+    </p>
+
+
+    <div class="grid" id="companyGrid">
+
+      <div class="empty" id="emptyMessage">
+        موردی با این عبارت یا حوزه پیدا نشد.
+      </div>
+
+    </div>
+
+
+    <section class="cta" id="join">
+
+      <div>
+        <h2>
+          آیا شرکت نوآوری هستید؟
+        </h2>
+
+        <p>
+          توانمندی، محصول یا فناوری خود را معرفی کنید تا پس از بررسی
+          در شبکه آبان منتشر شود.
+        </p>
+      </div>
+
+      <a
+        class="button"
+        href="https://forms.gle/mDLAuRdTJF8zM4P5A"
+        rel="noopener noreferrer"
+        target="_blank">
+        ثبت شرکت در آبان
+      </a>
+
+    </section>
+
+  </div>
+
+</section>
 <section class="cta" id="join">
 <div>
 <h2>می‌خواهید شرکت شما در شبکه آبان معرفی شود؟</h2>
