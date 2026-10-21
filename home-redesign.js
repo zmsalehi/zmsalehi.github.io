@@ -152,83 +152,106 @@ function renderCompanies() {
   if (!root) return;
 
   const search = $('companySearch');
-  const term = search
-    ? search.value.trim().toLocaleLowerCase('fa')
-    : '';
-
+  const term = search ? search.value.trim().toLocaleLowerCase('fa') : '';
   const filtered = companies.filter(company => {
-    const searchable = [
-      company.name,
-      company.sector,
-      company.short_description,
-      company.tags
-    ]
-      .map(value => String(value || ''))
-      .join(' ')
-      .toLocaleLowerCase('fa');
-
+    const searchable = [company.name, company.sector, company.short_description, company.tags]
+      .map(value => String(value || '')).join(' ').toLocaleLowerCase('fa');
     const companySector = String(company.sector || '');
-    const matchesSearch = searchable.includes(term);
-    const matchesSector = sector === 'all' || companySector.includes(sector);
-
-    return matchesSearch && matchesSector;
+    return searchable.includes(term) && (sector === 'all' || companySector.includes(sector));
   });
 
-  root.classList.remove('cards', 'three');
-  root.classList.add('company-showcase-grid');
   root.replaceChildren();
-
-  filtered.slice(0, 4).forEach(company => {
-    root.append(companyCard(company));
-  });
+  root.classList.remove('cards', 'three', 'company-showcase-grid', 'aban-company-marquee');
 
   if (!filtered.length) {
-    empty(
-      root,
-      companies.length
-        ? 'شرکتی با این جست‌وجو یافت نشد.'
-        : 'هنوز شرکتی برای نمایش عمومی منتشر نشده است.'
-    );
+    empty(root, companies.length
+      ? 'شرکتی با این جست‌وجو یافت نشد.'
+      : 'هنوز شرکتی برای نمایش عمومی منتشر نشده است.');
+    return;
   }
+
+  // When searching/filtering, freeze motion and show all matching results in a normal grid.
+  if (term || sector !== 'all' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    root.classList.add('company-showcase-grid', 'aban-company-results');
+    filtered.forEach(company => root.append(companyCard(company)));
+    return;
+  }
+
+  root.classList.add('aban-company-marquee');
+  root.setAttribute('aria-label', 'ویترین متحرک همه شرکت‌های منتشرشده');
+  const track = el('div', 'aban-company-track');
+  const first = el('div', 'aban-company-set');
+  const second = el('div', 'aban-company-set');
+
+  // The entire original dataset is shown, without a 4/10/100-item presentation cap.
+  // Repeat small datasets just enough to cover large screens without an empty interval.
+  const repeat = Math.max(1, Math.ceil(6 / filtered.length));
+  for (let pass = 0; pass < repeat; pass++) {
+    filtered.forEach((company, i) => {
+      const card = companyCard(company);
+      if (pass > 0) {
+        card.setAttribute('aria-hidden', 'true');
+        card.tabIndex = -1;
+        card.querySelectorAll('a').forEach(a => a.tabIndex = -1);
+      }
+      first.append(card);
+    });
+  }
+  second.append(...Array.from(first.children, node => {
+    const clone = node.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.tabIndex = -1;
+    clone.querySelectorAll('a').forEach(a => a.tabIndex = -1);
+    return clone;
+  }));
+  second.setAttribute('aria-hidden', 'true');
+  second.inert = true;
+  track.append(first, second);
+  root.append(track);
+
+  // Distance-based duration = visually consistent slow speed, even as companies grow.
+  const setSpeed = () => {
+    if (!track.isConnected) return;
+    const distance = first.getBoundingClientRect().width;
+    if (distance) track.style.setProperty('--aban-marquee-duration', Math.max(20, distance / 35) + 's');
+  };
+  requestAnimationFrame(setSpeed);
+}
+
+async function fetchAllPublishedCompanies(fields) {
+  const pageSize = 500;
+  const collected = [];
+  for (let offset = 0; ; offset += pageSize) {
+    const url = API_BASE + '/rest/v1/aban_companies' +
+      '?select=' + encodeURIComponent(fields) +
+      '&is_published=eq.true&order=created_at.desc' +
+      '&limit=' + pageSize + '&offset=' + offset;
+    const response = await fetch(url, { headers: { apikey: PUBLIC_KEY } });
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const batch = await response.json();
+    if (!Array.isArray(batch)) throw new Error('Invalid company response');
+    collected.push(...batch);
+    if (batch.length < pageSize) break;
+  }
+  return collected;
 }
 
 async function loadCompanies() {
   const root = $('homeCompanies');
   if (!root) return;
-
   const baseFields = 'slug,name,sector,short_description,tags';
-
   try {
     try {
-      companies = await query(
-        'aban_companies',
-        baseFields + ',card_image_url',
-        'is_published=eq.true',
-        'created_at.desc',
-        100
-      );
+      companies = await fetchAllPublishedCompanies(baseFields + ',card_image_url');
     } catch (imageFieldError) {
-      // اگر ستون تصویر هنوز در دیتابیس ساخته نشده باشد، خود فهرست شرکت‌ها از کار نمی‌افتد.
-      companies = await query(
-        'aban_companies',
-        baseFields,
-        'is_published=eq.true',
-        'created_at.desc',
-        100
-      );
-      companies = companies.map(company => ({
-        ...company,
-        card_image_url: ''
-      }));
+      // Keep all companies visible when an older database lacks card_image_url.
+      companies = await fetchAllPublishedCompanies(baseFields);
+      companies = companies.map(company => ({ ...company, card_image_url: '' }));
       console.info('card_image_url unavailable; company list loaded without images.');
     }
-
     renderCompanies();
   } catch (error) {
-    empty(
-      root,
-      'در حال حاضر دریافت فهرست شرکت‌ها امکان‌پذیر نیست. برای مشاهده شبکه کامل وارد صفحه شرکت‌ها شوید.'
-    );
+    empty(root, 'در حال حاضر دریافت فهرست شرکت‌ها امکان‌پذیر نیست. برای مشاهده شبکه کامل وارد صفحه شرکت‌ها شوید.');
     console.warn('companies', error);
   }
 }
@@ -298,6 +321,12 @@ function initHomePage() {
       menuToggle.setAttribute('aria-expanded', 'false');
     });
   }
+
+  window.addEventListener('resize', () => {
+    const set = document.querySelector('#homeCompanies .aban-company-set');
+    const track = document.querySelector('#homeCompanies .aban-company-track');
+    if (set && track) track.style.setProperty('--aban-marquee-duration', Math.max(20, set.getBoundingClientRect().width / 35) + 's');
+  });
 
   const companySearch = $('companySearch');
   if (companySearch) {
