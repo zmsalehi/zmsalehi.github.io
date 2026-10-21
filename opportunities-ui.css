@@ -188,3 +188,39 @@
 #opportunityControls .opp-counter {
   display: none;
 }
+
+/* قرارگیری فلش‌ها در مرکز ارتفاع کارت‌ها */
+
+#opportunities .opp-carousel {
+  position: relative;
+}
+
+#opportunities #opportunityControls {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100%;
+  height: 100%;
+  transform: none !important;
+  margin: 0 !important;
+  pointer-events: none;
+}
+
+#opportunities #opportunityControls button {
+  position: absolute !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  pointer-events: auto;
+}
+
+/* راست */
+#opportunities #opportunityControls button:first-child {
+  right: -38px !important;
+  left: auto !important;
+}
+
+/* چپ */
+#opportunities #opportunityControls button:last-child {
+  left: -38px !important;
+  right: auto !important;
+}
