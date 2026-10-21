@@ -456,3 +456,66 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
   #opportunities { padding-top: 28px !important; }
   #opportunities .section-title h2 { font-size: 28px; }
 }
+
+/* =====================================
+   ABAN - COMPACT COMPANY NETWORK
+===================================== */
+
+/* کاهش فاصله بالای بخش */
+#companies.company-network-home {
+  padding-top: 22px !important;
+  padding-bottom: 34px !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* عنوان و توضیحات */
+#companies .company-network-heading {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+}
+
+#companies .company-network-heading h2 {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+#companies .company-network-heading p {
+  margin-top: 0 !important;
+}
+
+/* نزدیک‌تر شدن جست‌وجو و فیلترها */
+#companies .company-network-tools {
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+  gap: 12px !important;
+}
+
+/* فاصله و چینش کارت‌ها */
+#companies #homeCompanies {
+  margin-top: 0 !important;
+  gap: 18px !important;
+  align-items: stretch;
+}
+
+/* کاهش فضای خالی داخل کارت‌ها */
+#companies #homeCompanies > article {
+  margin-top: 0 !important;
+  min-height: 0 !important;
+}
+
+/* نمایش موبایل */
+@media (max-width: 760px) {
+  #companies.company-network-home {
+    padding-top: 24px !important;
+    padding-bottom: 30px !important;
+  }
+
+  #companies .company-network-heading {
+    margin-bottom: 16px !important;
+  }
+
+  #companies .company-network-tools {
+    margin-bottom: 14px !important;
+  }
+}
