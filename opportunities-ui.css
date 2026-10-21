@@ -138,7 +138,6 @@
   left: 0 !important;
   right: 0 !important;
   bottom: auto !important;
-  inset: auto 0 auto 0 !important;
   transform: translateY(-50%) !important;
   width: 100% !important;
   height: 0 !important;
