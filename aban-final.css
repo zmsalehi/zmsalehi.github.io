@@ -529,8 +529,7 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 }
 
 /* ==========================================
-   ABAN — ALL COMPANIES CONTINUOUS MARQUEE
-   Horizontally flowing LEFT TO RIGHT
+   ABAN COMPANY MARQUEE — seamless full bleed
    ========================================== */
 .site-header .brand small {
   font-size: 12px !important;
@@ -539,63 +538,69 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
 }
 #companies #homeCompanies.aban-company-marquee {
   display: block !important;
-  overflow: hidden !important;
-  width: 100%;
-  max-width: 100%;
   position: relative;
-  margin: 0 !important;
-  padding: 3px 0 10px;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 3px 0 10px !important;
+  overflow: hidden !important;
+  direction: ltr;
 }
 #companies .aban-company-track {
-  display: flex;
-  width: max-content;
-  max-width: none;
-  gap: 0;
-  direction: ltr;
+  display: flex !important;
   align-items: stretch;
-  animation: aban-company-flow var(--aban-marquee-duration, 40s) linear infinite;
+  width: max-content !important;
+  max-width: none !important;
+  gap: 0 !important;
+  direction: ltr;
+  animation: aban-company-flow var(--aban-marquee-duration, 45s) linear infinite;
   will-change: transform;
 }
 #companies .aban-company-set {
-  display: flex;
-  flex: 0 0 auto;
+  display: flex !important;
+  flex: 0 0 auto !important;
   align-items: stretch;
   gap: 18px;
   padding-right: 18px;
+  box-sizing: border-box;
   direction: ltr;
 }
 #companies .aban-company-set > .company-showcase-card {
-  box-sizing: border-box;
-  direction: rtl;
   flex: 0 0 310px !important;
   width: 310px !important;
   min-width: 310px !important;
   height: auto;
+  box-sizing: border-box;
+  direction: rtl;
 }
 #companies .aban-company-marquee:hover .aban-company-track,
 #companies .aban-company-marquee:focus-within .aban-company-track {
   animation-play-state: paused;
 }
 @keyframes aban-company-flow {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from { transform: translate3d(calc(-1 * var(--aban-marquee-shift, 1000px)), 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
 }
 #companies #homeCompanies.aban-company-results {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
   gap: 18px;
 }
-@media (max-width: 1100px) {
-  #companies #homeCompanies.aban-company-results { grid-template-columns: repeat(2,minmax(0,1fr)); }
+@media(max-width:1100px) {
+  #companies #homeCompanies.aban-company-results {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media (max-width: 700px) {
+@media(max-width:700px) {
   #companies .aban-company-set > .company-showcase-card {
-    flex-basis: 260px !important;
-    width: 260px !important;
-    min-width: 260px !important;
+    flex-basis:260px !important;
+    width:260px !important;
+    min-width:260px !important;
   }
-  #companies #homeCompanies.aban-company-results { grid-template-columns: 1fr; }
+  #companies #homeCompanies.aban-company-results {grid-template-columns:1fr}
 }
-@media (prefers-reduced-motion: reduce) {
+@media(prefers-reduced-motion:reduce) {
   #companies .aban-company-track { animation: none !important; }
 }

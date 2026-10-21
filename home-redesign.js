@@ -183,39 +183,57 @@ function renderCompanies() {
   const first = el('div', 'aban-company-set');
   const second = el('div', 'aban-company-set');
 
-  // The entire original dataset is shown, without a 4/10/100-item presentation cap.
-  // Repeat small datasets just enough to cover large screens without an empty interval.
-  const repeat = Math.max(1, Math.ceil(6 / filtered.length));
-  for (let pass = 0; pass < repeat; pass++) {
-    filtered.forEach((company, i) => {
-      const card = companyCard(company);
-      if (pass > 0) {
-        card.setAttribute('aria-hidden', 'true');
-        card.tabIndex = -1;
-        card.querySelectorAll('a').forEach(a => a.tabIndex = -1);
-      }
-      first.append(card);
+  // Calculate copies from actual container width so there is never a blank tail.
+  // All distinct companies appear once in each base pass, without a display cap.
+  const fillTrack = () => {
+    if (!root.isConnected) return;
+    track.style.animation = 'none';
+    first.replaceChildren();
+    second.replaceChildren();
+    const baseCards = filtered.map(company => companyCard(company));
+    first.append(...baseCards);
+    const onePassWidth = Math.max(1, first.scrollWidth);
+    const neededWidth = root.clientWidth + 360;
+    const passes = Math.max(1, Math.ceil(neededWidth / onePassWidth));
+    for (let pass = 1; pass < passes; pass++) {
+      baseCards.forEach(node => {
+        const clone = node.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.tabIndex = -1;
+        clone.querySelectorAll('a').forEach(link => link.tabIndex = -1);
+        first.append(clone);
+      });
+    }
+    first.querySelectorAll('[aria-hidden="true"]').forEach(node => { node.inert = true; });
+    // Duplicate the complete first segment for truly seamless looping.
+    Array.from(first.children).forEach(node => {
+      const clone = node.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.tabIndex = -1;
+      clone.querySelectorAll('a').forEach(link => link.tabIndex = -1);
+      second.append(clone);
     });
-  }
-  second.append(...Array.from(first.children, node => {
-    const clone = node.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.tabIndex = -1;
-    clone.querySelectorAll('a').forEach(a => a.tabIndex = -1);
-    return clone;
-  }));
-  second.setAttribute('aria-hidden', 'true');
-  second.inert = true;
+    second.setAttribute('aria-hidden', 'true');
+    second.inert = true;
+    // The shift equals exactly one segment, including its final gap.
+    const distance = first.getBoundingClientRect().width;
+    track.style.setProperty('--aban-marquee-shift', distance + 'px');
+    track.style.setProperty('--aban-marquee-duration', Math.max(20, distance / 38) + 's');
+    track.style.animation = '';
+  };
+
   track.append(first, second);
   root.append(track);
+  // Ensure layout has width before calculating the copies.
+  requestAnimationFrame(fillTrack);
+  if (window.abanCompanyObserver) window.abanCompanyObserver.disconnect();
+  if (typeof ResizeObserver !== 'undefined') {
+    window.abanCompanyObserver = new ResizeObserver(() => {
+      if (root.classList.contains('aban-company-marquee')) fillTrack();
+    });
+    window.abanCompanyObserver.observe(root);
+  }
 
-  // Distance-based duration = visually consistent slow speed, even as companies grow.
-  const setSpeed = () => {
-    if (!track.isConnected) return;
-    const distance = first.getBoundingClientRect().width;
-    if (distance) track.style.setProperty('--aban-marquee-duration', Math.max(20, distance / 35) + 's');
-  };
-  requestAnimationFrame(setSpeed);
 }
 
 async function fetchAllPublishedCompanies(fields) {
@@ -325,7 +343,7 @@ function initHomePage() {
   window.addEventListener('resize', () => {
     const set = document.querySelector('#homeCompanies .aban-company-set');
     const track = document.querySelector('#homeCompanies .aban-company-track');
-    if (set && track) track.style.setProperty('--aban-marquee-duration', Math.max(20, set.getBoundingClientRect().width / 35) + 's');
+    // Marquee sizing is maintained by ResizeObserver in renderCompanies().
   });
 
   const companySearch = $('companySearch');
