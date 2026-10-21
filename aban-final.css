@@ -519,3 +519,11 @@ body{font-family:Nian,Tahoma,Arial,sans-serif!important;background:#fff;color:va
     margin-bottom: 14px !important;
   }
 }
+
+/* کوچک‌تر کردن شعار برند در هدر */
+.site-header .brand small {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  white-space: nowrap;
+}
