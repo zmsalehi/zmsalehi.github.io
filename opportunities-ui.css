@@ -33,7 +33,7 @@
 @media(max-width:650px){#opportunities .opp-cards,.opp-list{grid-template-columns:1fr}.opp-drawer{padding:18px}.opp-drawer h2{font-size:23px}}
 
 /* October layout corrections: scoped to opportunities only */
-#opportunities{overflow:visible!important;height:auto!important;max-height:none!important;padding-top:40px!important;padding-bottom:48px!important}
+#opportunities{overflow:visible!important;height:auto!important;max-height:none!important;padding-top:18px!important;padding-bottom:28px!important}
 #opportunities>.wrap{overflow:visible!important}
 #opportunities .section-title{margin-bottom:24px!important}
 #opportunities .section-title h2{font-size:clamp(29px,2.6vw,40px)!important;line-height:1.5!important}
@@ -108,119 +108,101 @@
 
 /* ارتفاع کمتر کل بخش فرصت‌ها */
 #opportunities {
-  padding-top: 32px !important;
-  padding-bottom: 38px !important;
+  padding-top: 18px !important;
+  padding-bottom: 28px !important;
 }
 
 #opportunities .section-title {
-  margin-bottom: 20px !important;
+  margin-bottom: 12px !important;
 }
-/* =========================
-   Home opportunities arrows
-========================= */
-
+/* ================================================
+   Home opportunity carousel: centered side arrows
+   Keep all dimensions relative to the CARDS, not the section.
+================================================ */
 #opportunities .opp-carousel {
-  position: relative;
+  position: relative !important;
+  isolation: isolate;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-#opportunityControls {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 5;
+#opportunities #homeOpportunities {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
-/* دکمه‌های مینیمال */
-#opportunityControls button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  pointer-events: auto;
-  cursor: pointer;
-
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  border-radius: 0;
-
-  color: #103d69;
-  font-size: 42px;
-  font-weight: 400;
-  line-height: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0;
-  transition: transform .18s ease, color .18s ease, opacity .18s ease;
-  opacity: .88;
-}
-
-/* دکمه سمت راست */
-#opportunityControls button:first-child {
-  right: -38px;
-}
-
-/* دکمه سمت چپ */
-#opportunityControls button:last-child {
-  left: -38px;
-}
-
-#opportunityControls button:hover {
-  color: #16a5b5;
-  opacity: 1;
-  transform: translateY(-50%) scale(1.08);
-}
-
-#opportunityControls button:focus-visible {
-  outline: none;
-  color: #16a5b5;
-  opacity: 1;
-}
-
-/* اگر شمارنده پایین را نمی‌خواهی */
-#opportunityControls .opp-counter {
-  display: none;
-}
-
-/* قرارگیری فلش‌ها در مرکز ارتفاع کارت‌ها */
-
-#opportunities .opp-carousel {
-  position: relative;
-}
-
+/* Zero-height overlay anchored at half the carousel height. */
 #opportunities #opportunityControls {
   position: absolute !important;
-  inset: 0 !important;
-  width: 100%;
-  height: 100%;
-  transform: none !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: auto !important;
+  inset: auto 0 auto 0 !important;
+  transform: translateY(-50%) !important;
+  width: 100% !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  display: block !important;
   margin: 0 !important;
+  padding: 0 !important;
   pointer-events: none;
+  z-index: 10;
 }
+#opportunities #opportunityControls[hidden] { display: none !important; }
 
 #opportunities #opportunityControls button {
   position: absolute !important;
-  top: 50% !important;
+  top: 0 !important;
   bottom: auto !important;
+  width: 36px !important;
+  height: 44px !important;
+  min-width: 36px !important;
   transform: translateY(-50%) !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #103d69 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 38px !important;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
   pointer-events: auto;
+  transition: color .2s ease, opacity .2s ease;
 }
-
-/* راست */
 #opportunities #opportunityControls button:first-child {
-  right: -38px !important;
+  right: -46px !important;
   left: auto !important;
 }
-
-/* چپ */
 #opportunities #opportunityControls button:last-child {
-  left: -38px !important;
+  left: -46px !important;
   right: auto !important;
+}
+#opportunities #opportunityControls button:hover { color: #079aa8 !important; }
+#opportunities #opportunityControls button:focus-visible {
+  outline: 2px solid #079aa8 !important;
+  outline-offset: 2px;
+}
+#opportunities #opportunityControls .opp-counter { display: none !important; }
+
+/* Make the entire section more compact without shrinking card text. */
+#opportunities .section-title { margin-top: 0 !important; margin-bottom: 12px !important; }
+#opportunities .opp-card { min-height: 0 !important; }
+#opportunities #homeOpportunities .opp-body { padding-bottom: 13px !important; }
+
+@media (max-width: 1400px) {
+  #opportunities #opportunityControls button:first-child { right: -36px !important; }
+  #opportunities #opportunityControls button:last-child { left: -36px !important; }
+}
+@media (max-width: 760px) {
+  #opportunities { padding-top: 18px !important; padding-bottom: 26px !important; }
+  #opportunities #opportunityControls button:first-child { right: -23px !important; }
+  #opportunities #opportunityControls button:last-child { left: -23px !important; }
+  #opportunities #opportunityControls button { font-size: 30px !important; width: 28px !important; }
 }
