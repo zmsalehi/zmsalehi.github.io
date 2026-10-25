@@ -16,9 +16,44 @@
     fieldset{border:0;border-top:1px solid var(--line);padding:23px 0 12px;margin:0}legend{font-size:18px;font-weight:700;color:var(--navy);padding:0 0 4px 14px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}.field{display:flex;flex-direction:column;gap:5px}.full{grid-column:1/-1}label{font-size:13px;font-weight:bold}label .req{color:#c64b4b}input,select,textarea{width:100%;font:inherit;color:var(--ink);border:1px solid #cbdce5;background:#fff;border-radius:10px;padding:10px 12px;outline-color:var(--cyan)}textarea{min-height:120px;resize:vertical}small{font-size:11px;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:20px}.btn{border:0;border-radius:11px;padding:12px 23px;background:var(--navy);color:#fff;font:inherit;font-weight:bold;cursor:pointer}.btn:hover{background:#033865}.status{color:#6d562b;font-size:13px}.disclaimer{margin-top:12px;font-size:12px;color:var(--muted)}footer{text-align:center;background:var(--deep);color:#d5e6ed;padding:17px;font-size:12px}
     @media(max-width:650px){.fields{grid-template-columns:1fr}.top{flex-wrap:wrap}}
   </style>
-<link href="aban-final.css" rel="stylesheet"/></head>
+<link href="aban-final.css" rel="stylesheet"/><link rel="stylesheet" href="header-footer.css"></head>
 <body class="aban-inner">
-<header class="site-header"><div class="wrap nav-wrap"><a aria-label="آبان، صفحه اصلی" class="brand" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><span><strong>آبان</strong><small>پلتفرم میانی نوآوری</small></span></a><button aria-controls="navLinks" aria-expanded="false" aria-label="نمایش منو" class="menu-toggle" id="menuToggle" type="button">☰</button><nav aria-label="منوی اصلی" class="nav-links" id="navLinks"><a href="index.html#home">خانه</a><a href="index.html#audiences">برای سازمان‌ها</a><a href="index.html#audiences">برای شرکت‌ها و تیم‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#companies">شبکه شرکت‌ها</a><a href="index.html#services">خدمات</a><a href="index.html#mag">مجله آبان</a><a href="index.html#about">درباره آبان</a></nav><a class="button primary nav-action" href="index.html#contact">شروع همکاری <span aria-hidden="true">←</span></a></div></header>
+
+<header class="site-header">
+  <div class="wrap nav-wrap">
+
+    <a class="brand" href="index.html#home"
+       aria-label="صفحه اصلی آبان">
+      <img src="logo-aban.png" alt="لوگوی آبان">
+      <span class="brand-caption">پلتفرم میانی نوآوری</span>
+    </a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      id="menuToggle"
+      aria-controls="navLinks"
+      aria-expanded="false"
+      aria-label="نمایش منو">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks" aria-label="منوی اصلی">
+      <a href="index.html#home">خانه</a>
+      <a href="opportunities.html">مسائل فناورانه</a>
+      <a href="companies.html">توانمندی‌های نوآورانه</a>
+      <a href="services.html">خدمات</a>
+      <a href="mag.html">مجله آبان</a>
+      <a href="about.html">درباره آبان</a>
+    </nav>
+
+    <a class="button primary nav-action" href="index.html#contact">
+      شروع همکاری <span aria-hidden="true">←</span>
+    </a>
+
+  </div>
+</header>
+
 <main class="wrap">
 <div class="hero"><span class="tag">مسائل و فرصت‌های همکاری</span><h1>معرفی مسئله به آبان</h1><p>مسئله یا نیاز سازمان خود را شرح دهید تا امکان بررسی آن و شناسایی ظرفیت‌های مناسب برای همکاری فراهم شود.</p></div>
 <section class="panel">
@@ -48,7 +83,59 @@
 </form>
 </section>
 </main>
-<footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand footer-logo" href="index.html#home"><img alt="لوگوی آبان" src="logo-aban.png"/><strong>آبان</strong></a><p>پیونددهنده نیازها و ظرفیت‌های نوآوری؛ برای شکل‌گیری همکاری‌های هدفمند و اثرگذار.</p></div><div><h3>دسترسی سریع</h3><a href="index.html#audiences">برای سازمان‌ها</a><a href="companies.html">شبکه شرکت‌ها</a><a href="index.html#opportunities">فرصت‌ها</a><a href="index.html#services">خدمات</a><a href="mag.html">مجله آبان</a></div><div><h3>ارتباط با آبان</h3><a href="problem.html">ثبت مسئله</a><a href="https://forms.gle/mDLAuRdTJF8zM4P5A" rel="noopener noreferrer" target="_blank">ثبت توانمندی</a><a href="index.html#about">درباره آبان</a></div><div><h3>سایر پیوندها</h3><a href="mag-submit.html">ارسال محتوا به مجله</a><a href="companies.html">جست‌وجوی شرکت‌ها</a><a href="index.html#contact">شروع همکاری</a></div></div><div class="footer-bottom"><span>تمامی حقوق این وب‌سایت متعلق به آبان است.</span><span>با هم، نوآوری را به عمل تبدیل می‌کنیم.</span></div></div></footer>
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a class="footer-logo"
+           href="index.html#home"
+           aria-label="صفحه اصلی آبان">
+          <img src="logo-aban.png" alt="لوگوی آبان">
+        </a>
+
+        <p>
+          پیونددهنده نیازها و ظرفیت‌های نوآوری؛
+          برای شکل‌گیری همکاری‌های هدفمند و اثرگذار.
+        </p>
+      </div>
+
+      <div>
+        <h3>دسترسی سریع</h3>
+        <a href="index.html#home">خانه</a>
+        <a href="opportunities.html">مسائل فناورانه</a>
+        <a href="companies.html">شبکه شرکت‌ها</a>
+        <a href="services.html">خدمات</a>
+        <a href="mag.html">مجله آبان</a>
+      </div>
+
+      <div>
+        <h3>ارتباط با آبان</h3>
+        <a href="problem.html">ثبت مسئله</a>
+        <a href="https://forms.gle/mDLAuRdTJF8zM4P5A"
+           target="_blank"
+           rel="noopener noreferrer">ثبت توانمندی</a>
+        <a href="about.html">درباره آبان</a>
+      </div>
+
+      <div>
+        <h3>سایر پیوندها</h3>
+        <a href="mag-submit.html">ارسال محتوا به مجله</a>
+        <a href="companies.html">جست‌وجوی شرکت‌ها</a>
+        <a href="index.html#contact">شروع همکاری</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>تمامی حقوق این وب‌سایت متعلق به آبان است.</span>
+      <span>با هم، نوآوری را به عمل تبدیل می‌کنیم.</span>
+    </div>
+
+  </div>
+</footer>
+
 <script>
   // این دو مقدار را از بخش Project Settings / API Keys در Supabase بگیرید.
   // فقط publishable key را اینجا قرار دهید. secret/service_role را هرگز وارد نکنید.
