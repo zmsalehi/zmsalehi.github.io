@@ -1170,5 +1170,34 @@ footer a:hover,
     }
 
 }
+.aban-process-section {
+    position: relative;
+}
 
+.process-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background-color: var(--bs-primary, #0d6efd);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
